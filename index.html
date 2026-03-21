@@ -3,2612 +3,462 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Axyn.Cloud - Host your own Servers</title>
-<link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Exo+2:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<title>StackEdge Studio</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Bebas+Neue&display=swap" rel="stylesheet">
 <style>
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-:root {
-  --bg-main: #0d0f1a;
-  --bg-card: #13162a;
-  --bg-nav: #0a0c18;
-  --accent: #1d4ed8;
-  --accent-light: #3b82f6;
-  --accent-blue: #2563eb;
-  --accent-blue-light: #60a5fa;
-  --text-main: #e8eaf6;
-  --text-muted: #8890b5;
-  --border: #1e2340;
-}
-
-body.light-theme {
-  --bg-main: #f0f2f8;
-  --bg-card: #ffffff;
-  --bg-nav: #ffffff;
-  --accent: #1d4ed8;
-  --accent-light: #3b82f6;
-  --accent-blue: #2563eb;
-  --accent-blue-light: #1d4ed8;
-  --text-main: #0d0f1a;
-  --text-muted: #5a6080;
-  --border: #d0d4e8;
-}
-
-body.light-theme nav {
-  box-shadow: 0 1px 12px rgba(0,0,0,0.08);
-}
-
-body.light-theme .hero {
-  background: #e8eaf8;
-}
-
-body.light-theme .hero-bg {
-  background: linear-gradient(to right, rgba(232,234,248,0.97) 35%, rgba(232,234,248,0.7) 70%, rgba(232,234,248,0.2) 100%);
-}
-
-body.light-theme .hero-grid-pattern {
-  background-image:
-    linear-gradient(rgba(79,110,247,0.06) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(79,110,247,0.06) 1px, transparent 1px);
-}
-
-body.light-theme .hero-title { color: #0d0f1a; }
-body.light-theme .hero-feat-card { background: rgba(255,255,255,0.85); }
-body.light-theme .nav-dropdown-menu { background: #ffffff; }
-body.light-theme .locale-menu { background: #ffffff; }
-body.light-theme footer { background: #e4e7f2; }
-
-body.light-theme .plans-sidebar,
-body.light-theme .detail-sidebar {
-  background: #e8eaf5;
-  border-right-color: var(--border);
-}
-
-body.light-theme .plans-sidebar h2,
-body.light-theme .detail-sidebar h2 {
-  color: #0d0f1a;
-}
-
-body.light-theme .sidebar-nav a {
-  color: #5a6080;
-}
-
-body.light-theme .sidebar-nav a:hover,
-body.light-theme .sidebar-nav a.active {
-  color: #0d0f1a;
-}
-
-body.light-theme .hero-title,
-body.light-theme .hero-title span,
-body.light-theme .section-title,
-body.light-theme .home-services-title,
-body.light-theme .service-card-body h3,
-body.light-theme .plan-card-info h4,
-body.light-theme .plan-card-banner,
-body.light-theme .detail-plan-name,
-body.light-theme .detail-banner,
-body.light-theme .spec-card .spec-value,
-body.light-theme .adv-features-title,
-body.light-theme .adv-feat-top h4,
-body.light-theme .locations-title,
-body.light-theme .locations-node-name,
-body.light-theme .footer-col h4,
-body.light-theme .footer-contact-value,
-body.light-theme .nav-logo,
-body.light-theme .nav-home-link,
-body.light-theme .plans-sidebar h2,
-body.light-theme .detail-sidebar h2,
-body.light-theme .step-label,
-body.light-theme .choose-label {
-  color: #0d0f1a;
-}
-
-body.light-theme .hero-sub,
-body.light-theme .service-card-body p,
-body.light-theme .adv-feat-card p,
-body.light-theme .locations-sub,
-body.light-theme .footer-tagline,
-body.light-theme .spec-card .spec-label,
-body.light-theme .plan-card-price,
-body.light-theme .plans-sidebar p,
-body.light-theme .detail-sidebar p {
-  color: #5a6080;
-}
-
-body.light-theme .adv-feat-card {
-  background: #ffffff;
-}
-
-body.light-theme .hero-feat-text h4 {
-  color: #0d0f1a;
-}
-
-body.light-theme .hero-feat-text p {
-  color: #5a6080;
-}
-
-body.light-theme .step-option {
-  color: #5a6080;
-}
-
-body.light-theme .step-option.selected,
-body.light-theme .step-option:hover {
-  color: #0d0f1a;
-}
-
-body.light-theme .locations-section {
-  background: #e0e3f0;
-}
-
-body.light-theme .locations-node {
-  background: #ffffff;
-}
-
-body {
-  background: var(--bg-main);
-  color: var(--text-main);
-  font-family: 'Exo 2', sans-serif;
-  min-height: 100vh;
-}
-
-@keyframes fadeUp {
-  from { opacity: 0; transform: translateY(24px); }
-  to   { opacity: 1; transform: translateY(0); }
-}
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to   { opacity: 1; }
-}
-@keyframes slideDown {
-  from { opacity: 0; transform: translateY(-10px); }
-  to   { opacity: 1; transform: translateY(0); }
-}
-@keyframes scaleIn {
-  from { opacity: 0; transform: scale(0.93); }
-  to   { opacity: 1; transform: scale(1); }
-}
-@keyframes heroPulse {
-  0%, 100% { opacity: 0.55; }
-  50%       { opacity: 0.75; }
-}
-
-nav {
-  background: var(--bg-nav);
-  border-bottom: 1px solid var(--border);
-  padding: 0 48px;
-  height: 64px;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-  position: sticky;
-  top: 0;
-  z-index: 200;
-  flex-wrap: nowrap;
-}
-
-.nav-logo {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  font-family: 'Rajdhani', sans-serif;
-  font-size: 22px;
-  font-weight: 700;
-  color: #fff;
-  cursor: pointer;
-  text-decoration: none;
-}
-
-.nav-logo-text {
-  font-family: 'Rajdhani', sans-serif;
-  font-size: 22px;
-  font-weight: 700;
-  color: #fff;
-  transition: color 0.2s;
-}
-
-.nav-logo-cloud {
-  color: var(--accent-blue-light);
-  transition: color 0.2s;
-}
-
-.nav-logo:hover .nav-logo-cloud {
-  color: #93c5fd;
-}
-
-body.light-theme .nav-logo-text {
-  color: #0d0f1a;
-}
-
-body.light-theme .nav-logo-cloud {
-  color: var(--accent-blue);
-}
-
-body.light-theme .nav-logo:hover .nav-logo-cloud {
-  color: #3b82f6;
-}
-  width: 36px;
-  height: 36px;
-  background: linear-gradient(135deg, var(--accent-blue), #1e40af);
-  border-radius: 8px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: 900;
-  font-size: 18px;
-  color: #fff;
-}
-
-.nav-links {
-  display: flex;
-  align-items: center;
-  gap: 30px;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  white-space: nowrap;
-}
-
-.nav-home-link {
-  color: var(--accent-blue-light);
-  font-size: 15px;
-  font-weight: 500;
-  cursor: pointer;
-}
-
-.nav-dropdown {
-  position: relative;
-}
-
-.nav-dropdown-toggle {
-  background: transparent;
-  border: none;
-  color: var(--text-muted);
-  font-family: 'Exo 2', sans-serif;
-  font-size: 15px;
-  font-weight: 500;
-  cursor: pointer;
-  display: inline-flex;
-  align-items: center;
-  gap: 5px;
-  padding: 0;
-  transition: color 0.2s;
-  white-space: nowrap;
-}
-
-.nav-dropdown-toggle:hover,
-.nav-dropdown-toggle.open {
-  color: var(--accent-blue-light);
-}
-
-.nav-dropdown-toggle .arrow {
-  font-size: 11px;
-  transition: transform 0.2s;
-  display: inline-block;
-}
-
-.nav-dropdown-toggle.open .arrow {
-  transform: rotate(180deg);
-}
-
-.nav-dropdown-menu {
-  display: none;
-  position: absolute;
-  top: calc(100% + 18px);
-  left: 0;
-  background: #12152b;
-  border: 1px solid var(--border);
-  border-radius: 10px;
-  min-width: 210px;
-  box-shadow: 0 12px 40px rgba(0,0,0,0.55);
-  overflow: hidden;
-  z-index: 300;
-}
-
-.nav-dropdown-menu.open {
-  display: block;
-  animation: slideDown 0.18s ease both;
-}
-
-.nav-dropdown-menu a {
-  display: block;
-  padding: 13px 20px;
-  color: var(--text-muted);
-  font-size: 14px;
-  font-weight: 500;
-  cursor: pointer;
-  transition: background 0.15s, color 0.15s;
-  text-decoration: none;
-  border-bottom: 1px solid var(--border);
-}
-
-.nav-dropdown-menu a:last-child {
-  border-bottom: none;
-}
-
-.nav-dropdown-menu a:hover {
-  background: rgba(79,110,247,0.1);
-  color: #fff;
-}
-
-.nav-right {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-}
-
-.locale-dropdown {
-  position: relative;
-}
-
-.locale-toggle {
-  background: transparent;
-  border: 1px solid var(--border);
-  border-radius: 6px;
-  color: var(--text-muted);
-  font-family: 'Exo 2', sans-serif;
-  font-size: 13px;
-  font-weight: 500;
-  cursor: pointer;
-  padding: 6px 12px;
-  display: flex;
-  align-items: center;
-  gap: 5px;
-  transition: border-color 0.2s, color 0.2s;
-}
-
-.locale-toggle:hover,
-.locale-toggle.open {
-  border-color: var(--accent-blue);
-  color: #fff;
-}
-
-.locale-menu {
-  display: none;
-  position: absolute;
-  top: calc(100% + 8px);
-  right: 0;
-  background: #12152b;
-  border: 1px solid var(--border);
-  border-radius: 10px;
-  min-width: 240px;
-  box-shadow: 0 12px 40px rgba(0,0,0,0.55);
-  z-index: 300;
-  overflow: hidden;
-}
-
-.locale-menu.open {
-  display: block;
-  animation: slideDown 0.18s ease both;
-}
-
-.locale-section-label {
-  padding: 10px 16px 6px;
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 1px;
-  color: var(--accent-blue-light);
-  text-transform: uppercase;
-}
-
-.locale-menu button {
-  display: block;
-  width: 100%;
-  text-align: left;
-  background: transparent;
-  border: none;
-  padding: 9px 16px;
-  color: var(--text-muted);
-  font-family: 'Exo 2', sans-serif;
-  font-size: 13px;
-  cursor: pointer;
-  transition: background 0.15s, color 0.15s;
-}
-
-.locale-menu button:hover {
-  background: rgba(79,110,247,0.1);
-  color: #fff;
-}
-
-.locale-menu button.selected {
-  color: var(--accent-blue-light);
-  font-weight: 600;
-}
-
-.locale-divider {
-  height: 1px;
-  background: var(--border);
-  margin: 4px 0;
-}
-
-.btn-login {
-  background: transparent;
-  border: 1px solid var(--border);
-  color: var(--text-main);
-  padding: 8px 20px;
-  border-radius: 6px;
-  cursor: pointer;
-  font-family: 'Exo 2', sans-serif;
-  font-size: 14px;
-  font-weight: 500;
-  transition: border-color 0.2s, color 0.2s;
-}
-
-.btn-login:hover {
-  border-color: var(--accent-blue);
-  color: var(--accent-blue-light);
-}
-
-.btn-register {
-  background: var(--accent-blue);
-  border: none;
-  color: #fff;
-  padding: 8px 20px;
-  border-radius: 6px;
-  cursor: pointer;
-  font-family: 'Exo 2', sans-serif;
-  font-size: 14px;
-  font-weight: 600;
-  transition: background 0.2s;
-}
-
-.btn-register:hover {
-  background: var(--accent-blue-light);
-}
-
-.page {
-  display: none;
-}
-
-.page.active {
-  display: block;
-}
-
-.hero {
-  position: relative;
-  min-height: 480px;
-  display: flex;
-  align-items: center;
-  overflow: hidden;
-  background: #0a0c18;
-}
-
-.hero-bg {
-  position: absolute;
-  inset: 0;
-  background:
-    linear-gradient(to right, rgba(10,12,24,0.97) 35%, rgba(10,12,24,0.55) 70%, rgba(10,12,24,0.2) 100%),
-    linear-gradient(135deg, #0d0f1a 0%, #1a0d2e 50%, #0d1a2e 100%);
-  animation: heroPulse 6s ease-in-out infinite;
-}
-
-.hero-grid-pattern {
-  position: absolute;
-  inset: 0;
-  background-image:
-    linear-gradient(rgba(29,78,216,0.04) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(29,78,216,0.04) 1px, transparent 1px);
-  background-size: 48px 48px;
-}
-
-.hero-glow {
-  position: absolute;
-  top: -100px;
-  right: 100px;
-  width: 600px;
-  height: 600px;
-  background: radial-gradient(circle, rgba(29,78,216,0.12) 0%, transparent 65%);
-  pointer-events: none;
-}
-
-.hero-glow2 {
-  position: absolute;
-  bottom: -80px;
-  left: 200px;
-  width: 400px;
-  height: 400px;
-  background: radial-gradient(circle, rgba(79,110,247,0.08) 0%, transparent 65%);
-  pointer-events: none;
-}
-
-.hero-content {
-  position: relative;
-  z-index: 2;
-  padding: 60px 48px 60px 60px;
-  flex: 0 0 auto;
-  width: 50%;
-}
-
-.hero-title {
-  font-family: 'Rajdhani', sans-serif;
-  font-size: 80px;
-  font-weight: 700;
-  line-height: 0.95;
-  color: #fff;
-  margin-bottom: 24px;
-  animation: fadeUp 0.5s ease both;
-  letter-spacing: -1px;
-}
-
-.hero-title span {
-  color: var(--accent-light);
-}
-
-.hero-sub {
-  font-size: 16px;
-  color: var(--text-muted);
-  line-height: 1.7;
-  margin-bottom: 36px;
-  max-width: 420px;
-  animation: fadeUp 0.5s ease 0.08s both;
-}
-
-.hero-actions {
-  display: flex;
-  align-items: center;
-  gap: 20px;
-  animation: fadeUp 0.5s ease 0.14s both;
-}
-
-.btn-get-started {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  background: var(--accent);
-  border: none;
-  color: #fff;
-  padding: 13px 28px;
-  border-radius: 8px;
-  font-family: 'Exo 2', sans-serif;
-  font-size: 15px;
-  font-weight: 700;
-  cursor: pointer;
-  transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
-  letter-spacing: 0.3px;
-}
-
-.btn-get-started:hover {
-  background: var(--accent-light);
-  transform: translateY(-2px);
-  box-shadow: 0 6px 24px rgba(29,78,216,0.4);
-}
-
-.btn-learn-more {
-  display: inline-flex;
-  align-items: center;
-  gap: 7px;
-  background: transparent;
-  border: none;
-  color: var(--text-muted);
-  font-family: 'Exo 2', sans-serif;
-  font-size: 15px;
-  font-weight: 500;
-  cursor: pointer;
-  transition: color 0.2s;
-  padding: 0;
-}
-
-.btn-learn-more:hover {
-  color: #fff;
-}
-
-.hero-features {
-  position: relative;
-  z-index: 2;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 12px;
-  padding: 60px 60px 60px 0;
-  align-self: center;
-  flex: 0 0 auto;
-  width: 50%;
-  animation: fadeUp 0.55s ease 0.1s both;
-}
-
-.hero-feat-card {
-  background: rgba(19,22,42,0.82);
-  border: 1px solid rgba(30,35,64,0.9);
-  border-radius: 14px;
-  padding: 22px 20px;
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  gap: 12px;
-  backdrop-filter: blur(8px);
-  transition: border-color 0.2s, transform 0.2s;
-}
-
-.hero-feat-card:hover {
-  border-color: rgba(29,78,216,0.35);
-  transform: translateY(-2px);
-}
-
-.hero-feat-text h4 {
-  font-family: 'Rajdhani', sans-serif;
-  font-size: 17px;
-  font-weight: 700;
-  color: #fff;
-  margin-bottom: 5px;
-}
-
-.hero-feat-text p {
-  font-size: 12px;
-  color: var(--text-muted);
-  line-height: 1.5;
-  max-width: 160px;
-}
-
-.hero-feat-icon {
-  width: 36px;
-  height: 36px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 20px;
-  flex-shrink: 0;
-  color: var(--accent-light);
-  opacity: 0.85;
-}
-
-.home-services {
-  padding: 56px 60px;
-}
-
-.home-services-title {
-  font-family: 'Rajdhani', sans-serif;
-  font-size: 26px;
-  font-weight: 700;
-  color: var(--text-main);
-  margin-bottom: 28px;
-  letter-spacing: 0.5px;
-  animation: fadeUp 0.45s ease both;
-}
-
-.service-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 26px;
-  max-width: 1060px;
-}
-
-.service-card {
-  background: var(--bg-card);
-  border: 1px solid var(--border);
-  border-radius: 12px;
-  overflow: hidden;
-  cursor: pointer;
-  transition: transform 0.22s, border-color 0.22s, box-shadow 0.22s;
-  animation: fadeUp 0.5s ease both;
-}
-
-.service-card:nth-child(1) { animation-delay: 0.05s; }
-.service-card:nth-child(2) { animation-delay: 0.12s; }
-.service-card:nth-child(3) { animation-delay: 0.19s; }
-
-.service-card:hover {
-  transform: translateY(-5px);
-  border-color: var(--accent-blue);
-  box-shadow: 0 8px 32px rgba(79,110,247,0.16);
-}
-
-.service-card-img-wrap {
-  width: 100%;
-  aspect-ratio: 4/3;
-  background: linear-gradient(135deg, #1e1b6e 0%, #2d2b8a 60%, #3b1fa0 100%);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  gap: 14px;
-  position: relative;
-  overflow: hidden;
-}
-
-.service-card-img-wrap::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(circle at 30% 50%, rgba(79,110,247,0.18) 0%, transparent 70%);
-}
-
-.service-card-img-wrap img {
-  width: 80%;
-  height: auto;
-  max-height: 75%;
-  object-fit: contain;
-  position: relative;
-  z-index: 1;
-  filter: drop-shadow(0 4px 16px rgba(0,0,0,0.4));
-}
-
-.service-card-img-wrap .plans-label {
-  font-family: 'Rajdhani', sans-serif;
-  font-size: 30px;
-  font-weight: 700;
-  letter-spacing: 3px;
-  color: #fff;
-  position: relative;
-  z-index: 1;
-  text-shadow: 0 2px 8px rgba(0,0,0,0.4);
-}
-
-.service-card-body {
-  padding: 18px 20px;
-}
-
-.service-card-body h3 {
-  font-family: 'Rajdhani', sans-serif;
-  font-size: 19px;
-  font-weight: 700;
-  color: #fff;
-  margin-bottom: 8px;
-}
-
-.service-card-body p {
-  font-size: 13px;
-  color: var(--text-muted);
-  line-height: 1.6;
-  margin-bottom: 16px;
-}
-
-.btn-view-all {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  width: 100%;
-  background: var(--accent-blue);
-  border: none;
-  color: #fff;
-  padding: 10px;
-  border-radius: 8px;
-  font-family: 'Exo 2', sans-serif;
-  font-size: 14px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: background 0.2s;
-}
-
-.btn-view-all:hover {
-  background: var(--accent-blue-light);
-}
-
-.plans-page {
-  display: flex;
-  min-height: calc(100vh - 64px);
-}
-
-.plans-sidebar {
-  width: 280px;
-  min-width: 280px;
-  background: #0f1120;
-  border-right: 1px solid var(--border);
-  padding: 36px 28px;
-  animation: fadeIn 0.3s ease both;
-}
-
-.plans-sidebar h2 {
-  font-family: 'Rajdhani', sans-serif;
-  font-size: 22px;
-  font-weight: 700;
-  color: #fff;
-  margin-bottom: 10px;
-}
-
-.plans-sidebar p {
-  font-size: 13px;
-  color: var(--text-muted);
-  line-height: 1.6;
-  margin-bottom: 28px;
-}
-
-.sidebar-nav {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-}
-
-.sidebar-nav a {
-  color: var(--text-muted);
-  text-decoration: none;
-  font-size: 14px;
-  font-weight: 500;
-  padding: 6px 0;
-  cursor: pointer;
-  transition: color 0.2s;
-}
-
-.sidebar-nav a:hover {
-  color: #fff;
-}
-
-.sidebar-nav a.active {
-  color: #fff;
-  font-weight: 700;
-}
-
-.plans-main {
-  flex: 1;
-  padding: 36px 48px;
-  animation: fadeUp 0.38s ease both;
-}
-
-.order-steps {
-  margin-bottom: 8px;
-}
-
-.step-block {
-  margin-bottom: 24px;
-  animation: fadeUp 0.4s ease both;
-}
-
-.step-block:nth-child(1) { animation-delay: 0.04s; }
-.step-block:nth-child(2) { animation-delay: 0.1s; }
-
-.step-label {
-  font-size: 13px;
-  font-weight: 600;
-  color: var(--accent-blue-light);
-  margin-bottom: 12px;
-  letter-spacing: 0.3px;
-}
-
-.step-options {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-}
-
-.step-option {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  background: var(--bg-card);
-  border: 1.5px solid var(--border);
-  border-radius: 8px;
-  padding: 9px 16px;
-  cursor: pointer;
-  font-family: 'Exo 2', sans-serif;
-  font-size: 14px;
-  font-weight: 500;
-  color: var(--text-muted);
-  transition: border-color 0.2s, color 0.2s, background 0.2s;
-}
-
-.step-option:hover {
-  border-color: var(--accent-blue);
-  color: #fff;
-}
-
-.step-option.selected {
-  border-color: var(--accent-blue);
-  background: rgba(79,110,247,0.12);
-  color: #fff;
-}
-
-.step-option img {
-  width: 22px;
-  height: 22px;
-  object-fit: contain;
-  border-radius: 3px;
-}
-
-.step-option .flag {
-  font-size: 18px;
-  line-height: 1;
-}
-
-.step-divider {
-  height: 1px;
-  background: var(--border);
-  margin: 8px 0 24px;
-  opacity: 0.5;
-  animation: fadeIn 0.4s ease 0.14s both;
-}
-
-.choose-label {
-  font-size: 13px;
-  font-weight: 600;
-  color: var(--accent-blue-light);
-  margin-bottom: 18px;
-  animation: fadeUp 0.4s ease 0.16s both;
-}
-
-.plan-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 22px;
-}
-
-.plan-card {
-  background: var(--bg-card);
-  border: 1px solid var(--border);
-  border-radius: 12px;
-  overflow: hidden;
-  cursor: pointer;
-  transition: transform 0.22s, border-color 0.22s, box-shadow 0.22s;
-  animation: scaleIn 0.35s cubic-bezier(0.22,1,0.36,1) both;
-}
-
-.plan-card:hover {
-  transform: translateY(-4px);
-  border-color: var(--accent-blue);
-  box-shadow: 0 8px 28px rgba(79,110,247,0.16);
-}
-
-.plan-card-banner {
-  width: 100%;
-  height: 80px;
-  display: flex;
-  align-items: center;
-  padding: 0 18px;
-  font-family: 'Rajdhani', sans-serif;
-  font-size: 18px;
-  font-weight: 700;
-  letter-spacing: 2px;
-  color: #fff;
-  position: relative;
-  overflow: hidden;
-  flex-shrink: 0;
-}
-
-.plan-card-banner::before {
-  content: '';
-  position: absolute;
-  top: -40%;
-  right: -5%;
-  width: 55%;
-  height: 200%;
-  border-radius: 50%;
-  background: rgba(255,255,255,0.07);
-}
-
-.bronze-banner   { background: linear-gradient(135deg, #cd7f32 0%, #2244cc 60%); }
-.silver-banner   { background: linear-gradient(135deg, #a8a9ad 0%, #2244cc 60%); }
-.gold-banner     { background: linear-gradient(135deg, #ffd700 0%, #2244cc 60%); }
-.diamond-banner  { background: linear-gradient(135deg, #00c6ff 0%, #1a3acc 60%); }
-.platinum-banner { background: linear-gradient(135deg, #b026ff 0%, #2233bb 60%); }
-
-.plan-card-info {
-  padding: 14px 16px 4px;
-}
-
-.plan-card-info h4 {
-  font-family: 'Rajdhani', sans-serif;
-  font-size: 17px;
-  font-weight: 700;
-  color: #fff;
-}
-
-.plan-card-price {
-  font-size: 15px;
-  font-weight: 600;
-  color: var(--accent-blue-light);
-  margin-top: 3px;
-}
-
-.plan-card-specs {
-  padding: 10px 16px;
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-}
-
-.plan-card-spec-row {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  font-size: 12px;
-  color: var(--text-muted);
-}
-
-.plan-card-spec-row svg {
-  color: var(--accent-light);
-  flex-shrink: 0;
-}
-
-.plan-card-actions {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  padding: 10px 16px 14px;
-}
-
-.btn-view {
-  flex: 1;
-  background: var(--accent-blue);
-  border: none;
-  color: #fff;
-  padding: 9px;
-  border-radius: 7px;
-  font-family: 'Exo 2', sans-serif;
-  font-size: 14px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: background 0.2s;
-}
-
-.btn-view:hover {
-  background: var(--accent-blue-light);
-}
-
-.btn-cart {
-  width: 36px;
-  height: 36px;
-  background: var(--bg-main);
-  border: 1px solid var(--border);
-  border-radius: 7px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  color: var(--text-muted);
-  transition: border-color 0.2s, color 0.2s;
-  font-size: 15px;
-}
-
-.btn-cart:hover {
-  border-color: var(--accent-blue);
-  color: var(--accent-blue-light);
-}
-
-.detail-page {
-  display: flex;
-  min-height: calc(100vh - 64px);
-}
-
-.detail-sidebar {
-  width: 280px;
-  min-width: 280px;
-  background: #0f1120;
-  border-right: 1px solid var(--border);
-  padding: 36px 28px;
-  animation: fadeIn 0.3s ease both;
-}
-
-.detail-sidebar h2 {
-  font-family: 'Rajdhani', sans-serif;
-  font-size: 22px;
-  font-weight: 700;
-  color: #fff;
-  margin-bottom: 10px;
-}
-
-.detail-sidebar p {
-  font-size: 13px;
-  color: var(--text-muted);
-  line-height: 1.6;
-  margin-bottom: 28px;
-}
-
-.detail-main {
-  flex: 1;
-  padding: 50px 60px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.detail-banner {
-  width: 340px;
-  height: 220px;
-  border-radius: 16px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family: 'Rajdhani', sans-serif;
-  font-size: 34px;
-  font-weight: 700;
-  letter-spacing: 3px;
-  color: #fff;
-  position: relative;
-  overflow: hidden;
-  margin-bottom: 32px;
-  animation: scaleIn 0.4s cubic-bezier(0.22,1,0.36,1) 0.05s both;
-}
-
-.detail-banner::before {
-  content: '';
-  position: absolute;
-  top: -30%;
-  right: -10%;
-  width: 70%;
-  height: 160%;
-  border-radius: 50%;
-  background: rgba(255,255,255,0.07);
-}
-
-.detail-plan-name {
-  font-family: 'Rajdhani', sans-serif;
-  font-size: 28px;
-  font-weight: 700;
-  color: #fff;
-  margin-bottom: 6px;
-  animation: fadeUp 0.4s ease 0.1s both;
-}
-
-.detail-price {
-  font-size: 22px;
-  font-weight: 600;
-  color: var(--accent-blue-light);
-  margin-bottom: 18px;
-  animation: fadeUp 0.4s ease 0.14s both;
-}
-
-.detail-location-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 7px;
-  background: rgba(255,255,255,0.04);
-  border: 1px solid var(--border);
-  border-radius: 20px;
-  padding: 5px 14px;
-  font-size: 13px;
-  color: var(--text-muted);
-  margin-bottom: 12px;
-  animation: fadeUp 0.4s ease 0.18s both;
-}
-
-.badge-uptime {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  background: rgba(79, 110, 247, 0.12);
-  border: 1px solid rgba(79, 110, 247, 0.3);
-  border-radius: 20px;
-  padding: 5px 14px;
-  font-size: 12px;
-  color: var(--accent-blue-light);
-  margin-bottom: 28px;
-  animation: fadeUp 0.4s ease 0.22s both;
-}
-
-.specs-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 18px;
-  width: 100%;
-  max-width: 620px;
-  margin-bottom: 36px;
-  animation: fadeUp 0.4s ease 0.26s both;
-}
-
-.spec-card {
-  background: var(--bg-card);
-  border: 1px solid var(--border);
-  border-radius: 10px;
-  padding: 20px 16px;
-  text-align: center;
-  transition: border-color 0.2s, transform 0.2s;
-}
-
-.spec-card:hover {
-  border-color: var(--accent-blue);
-  transform: translateY(-2px);
-}
-
-.spec-card .spec-icon {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--accent-blue-light);
-  margin-bottom: 10px;
-}
-
-.spec-card .spec-value {
-  font-family: 'Rajdhani', sans-serif;
-  font-size: 22px;
-  font-weight: 700;
-  color: #fff;
-}
-
-.spec-card .spec-label {
-  font-size: 12px;
-  color: var(--text-muted);
-  margin-top: 4px;
-}
-
-.btn-order-now {
-  background: var(--accent-blue);
-  border: none;
-  color: #fff;
-  padding: 14px 60px;
-  border-radius: 8px;
-  font-family: 'Exo 2', sans-serif;
-  font-size: 16px;
-  font-weight: 700;
-  cursor: pointer;
-  transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
-  letter-spacing: 0.5px;
-  animation: fadeUp 0.4s ease 0.3s both;
-}
-
-.btn-order-now:hover {
-  background: var(--accent-blue-light);
-  transform: translateY(-2px);
-  box-shadow: 0 6px 24px rgba(79,110,247,0.35);
-}
-
-.btn-back {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  background: transparent;
-  border: 1px solid var(--border);
-  color: var(--text-muted);
-  padding: 7px 16px;
-  border-radius: 6px;
-  font-family: 'Exo 2', sans-serif;
-  font-size: 13px;
-  cursor: pointer;
-  margin-bottom: 30px;
-  transition: border-color 0.2s, color 0.2s;
-  animation: fadeIn 0.3s ease both;
-}
-
-.btn-discord {
-  display: inline-flex;
-  align-items: center;
-  gap: 7px;
-  background: #5865F2;
-  border: none;
-  color: #fff;
-  padding: 8px 16px;
-  border-radius: 6px;
-  font-family: 'Exo 2', sans-serif;
-  font-size: 14px;
-  font-weight: 600;
-  cursor: pointer;
-  text-decoration: none;
-  transition: background 0.2s, transform 0.15s;
-  white-space: nowrap;
-  line-height: 1;
-}
-
-.btn-discord:hover {
-  background: #4752c4;
-  transform: translateY(-1px);
-}
-
-.btn-discord svg {
-  flex-shrink: 0;
-}
-
-footer {
-  background: #080a14;
-  border-top: 1px solid var(--border);
-}
-
-.footer-top {
-  display: grid;
-  grid-template-columns: 1.6fr 1fr 1fr 1.4fr;
-  gap: 48px;
-  padding: 56px 60px 48px;
-  max-width: 1300px;
-  margin: 0 auto;
-}
-
-.footer-brand {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-}
-
-.footer-logo {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.footer-tagline {
-  font-size: 13px;
-  color: var(--text-muted);
-  line-height: 1.7;
-  max-width: 280px;
-}
-
-.footer-discord-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  background: #5865F2;
-  color: #fff;
-  text-decoration: none;
-  padding: 8px 16px;
-  border-radius: 7px;
-  font-family: 'Exo 2', sans-serif;
-  font-size: 13px;
-  font-weight: 600;
-  width: fit-content;
-  transition: background 0.2s, transform 0.15s;
-}
-
-.footer-discord-btn:hover {
-  background: #4752c4;
-  transform: translateY(-1px);
-}
-
-.footer-col h4 {
-  font-family: 'Rajdhani', sans-serif;
-  font-size: 17px;
-  font-weight: 700;
-  color: #fff;
-  margin-bottom: 18px;
-  letter-spacing: 0.3px;
-}
-
-.footer-col ul {
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  gap: 11px;
-}
-
-.footer-col ul li a {
-  font-size: 13px;
-  color: var(--text-muted);
-  text-decoration: none;
-  cursor: pointer;
-  transition: color 0.2s;
-}
-
-.footer-col ul li a:hover {
-  color: #fff;
-}
-
-.footer-contact-list {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-}
-
-.footer-contact-item {
-  display: flex;
-  align-items: flex-start;
-  gap: 12px;
-}
-
-.footer-contact-icon {
-  width: 28px;
-  height: 28px;
-  background: rgba(29,78,216,0.15);
-  border: 1px solid rgba(29,78,216,0.3);
-  border-radius: 6px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--accent-light);
-  flex-shrink: 0;
-  margin-top: 2px;
-}
-
-.footer-contact-label {
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 1px;
-  color: var(--text-muted);
-  text-transform: uppercase;
-  margin-bottom: 3px;
-}
-
-.footer-contact-value {
-  font-size: 13px;
-  color: var(--text-main);
-}
-
-.footer-contact-value.coming-soon {
-  color: var(--text-muted);
-  font-style: italic;
-}
-
-.footer-bottom {
-  border-top: 1px solid var(--border);
-  padding: 20px 60px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  max-width: 1300px;
-  margin: 0 auto;
-  font-size: 12px;
-  color: var(--text-muted);
-}
-
-@media (max-width: 768px) {
-
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  :root {
+    --blue: #38B6FF;
+    --blue-dark: #1A8FD1;
+    --black: #0A0A0A;
+    --gray: #666666;
+    --light-gray: #f0f0f0;
+    --border: #e5e5e5;
+    --white: #ffffff;
+  }
+  body { font-family: 'Inter', sans-serif; background: var(--white); color: var(--black); overflow-x: hidden; }
+
+  /* NAV */
   nav {
-    padding: 0 16px;
-    height: 56px;
-  }
-
-  .nav-links {
-    display: none;
-  }
-
-  .nav-right {
-    gap: 8px;
-  }
-
-  .locale-toggle {
-    font-size: 11px;
-    padding: 5px 8px;
-  }
-
-  #locale-label {
-    display: none;
-  }
-
-  .locale-toggle::after {
-    content: '🌐';
-    font-size: 15px;
-  }
-
-  .locale-menu {
-    min-width: 200px;
-    right: 0;
-  }
-
-  .btn-discord {
-    padding: 7px 10px;
-    font-size: 0;
-  }
-
-  .btn-discord svg {
-    width: 18px;
-    height: 18px;
-  }
-
-  .hero {
-    flex-direction: column;
-    min-height: unset;
-    padding-bottom: 0;
-  }
-
-  .hero-content {
-    padding: 36px 20px 24px;
-    width: 100%;
-  }
-
-  .hero-title {
-    font-size: 52px;
-  }
-
-  .hero-features {
-    padding: 0 16px 32px;
-    grid-template-columns: 1fr 1fr;
-    gap: 10px;
-    width: 100%;
-    align-self: unset;
-  }
-
-  .hero-feat-card {
-    min-width: unset;
-    padding: 14px 12px;
-  }
-
-  .hero-feat-text h4 {
-    font-size: 13px;
-  }
-
-  .hero-feat-text p {
-    font-size: 11px;
-  }
-
-  .hero-feat-icon {
-    font-size: 16px;
-    width: 28px;
-    height: 28px;
-  }
-
-  .home-services {
-    padding: 32px 16px;
-  }
-
-  .service-grid {
-    grid-template-columns: 1fr;
-    gap: 18px;
-    padding: 0;
-  }
-
-  .plans-page,
-  .detail-page {
-    flex-direction: column;
-  }
-
-  .plans-sidebar,
-  .detail-sidebar {
-    width: 100%;
-    min-width: unset;
-    border-right: none;
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: rgba(255,255,255,0.95); backdrop-filter: blur(12px);
     border-bottom: 1px solid var(--border);
-    padding: 20px 16px;
+    height: 76px; padding: 0 48px;
+    display: grid; grid-template-columns: 1fr auto 1fr; align-items: center;
   }
+  .nav-logo { justify-self: start; display:flex; align-items:center; text-decoration:none; }
+  .nav-logo img { height: 52px; width: auto; object-fit: contain; }
+  .nav-logo-text { font-family:'Bebas Neue',cursive; font-size:28px; letter-spacing:3px; color:var(--black); display:none; }
+  .nav-logo-text span { color: var(--blue); }
+  .nav-links { justify-self: center; display:flex; gap:32px; list-style:none; }
+  .nav-links a { font-size:14px; font-weight:600; color:var(--gray); text-decoration:none; transition:color .2s; }
+  .nav-links a:hover { color: var(--black); }
+  .nav-cta { justify-self: end; background:var(--black); color:var(--white); padding:11px 24px; font-size:14px; font-weight:700; text-decoration:none; border-radius:6px; transition:background .2s; }
+  .nav-cta:hover { background: var(--blue); }
 
-  .plans-sidebar p,
-  .detail-sidebar p {
-    display: none;
+  /* HERO */
+  #hero {
+    min-height: 100vh;
+    display: flex; align-items: center; justify-content: center;
+    border-bottom: 1px solid var(--border);
+    padding: 100px 24px;
   }
-
-  .sidebar-nav {
-    flex-direction: row;
-    flex-wrap: wrap;
-    gap: 8px;
+  .hero-inner {
+    width: 100%; max-width: 780px;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    text-align: center; gap: 0;
   }
-
-  .sidebar-nav a {
-    background: var(--bg-card);
-    border: 1px solid var(--border);
-    border-radius: 6px;
-    padding: 6px 12px;
-    font-size: 12px;
+  .hero-logo { margin-bottom: 28px; }
+  .hero-logo img { height: 120px; width: auto; object-fit: contain; display: block; margin: 0 auto; }
+  .hero-logo-text { font-family:'Bebas Neue',cursive; font-size:64px; letter-spacing:5px; color:var(--black); display:none; }
+  .hero-logo-text span { color: var(--blue); }
+  .hero-badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: #EFF8FF; border: 1px solid #B8E0FF;
+    color: var(--blue-dark); padding: 6px 16px;
+    border-radius: 20px; font-size: 13px; font-weight: 600;
+    margin-bottom: 24px;
   }
-
-  .sidebar-nav a.active {
-    border-color: var(--accent-blue);
-    background: rgba(79,110,247,0.1);
+  .hero-badge-dot { width: 7px; height: 7px; background: var(--blue); border-radius: 50%; }
+  .hero-h1 {
+    font-size: clamp(38px, 5vw, 78px);
+    font-weight: 900; line-height: 1.05; letter-spacing: -2px;
+    color: var(--black); margin-bottom: 20px;
   }
-
-  .plans-main {
-    padding: 20px 16px;
+  .hero-h1 span { color: var(--blue); }
+  .hero-sub {
+    font-size: 17px; color: var(--gray); line-height: 1.7;
+    max-width: 480px; margin: 0 auto 36px;
   }
+  .hero-btns { display:flex; gap:14px; flex-wrap:wrap; justify-content:center; margin-bottom:14px; }
+  .btn-black { background:var(--black); color:var(--white); padding:14px 28px; font-size:15px; font-weight:700; text-decoration:none; border-radius:6px; transition:background .2s, transform .15s; display:inline-flex; align-items:center; gap:8px; }
+  .btn-black:hover { background:var(--blue); transform:translateY(-2px); }
+  .btn-outline { background:transparent; color:var(--black); padding:14px 28px; font-size:15px; font-weight:700; text-decoration:none; border-radius:6px; border:2px solid var(--border); transition:border-color .2s, transform .15s; display:inline-flex; align-items:center; gap:8px; }
+  .btn-outline:hover { border-color:var(--black); transform:translateY(-2px); }
+  .hero-24h { font-size:13px; color:var(--gray); margin-bottom: 52px; }
+  .hero-stats { display:flex; justify-content:center; gap:52px; padding-top:40px; border-top:1px solid var(--border); width:100%; }
+  .stat-num { font-size:32px; font-weight:900; color:var(--black); letter-spacing:-1px; text-align:center; }
+  .stat-num span { color:var(--blue); }
+  .stat-label { font-size:13px; color:var(--gray); font-weight:500; margin-top:3px; text-align:center; }
 
-  .plan-grid {
-    grid-template-columns: 1fr 1fr;
-    gap: 12px;
+  /* SECTIONS */
+  .section-wrap { max-width:1200px; margin:0 auto; padding:0 60px; }
+  section { padding:100px 0; }
+  .section-tag { display:inline-block; background:#EFF8FF; color:var(--blue-dark); padding:5px 14px; border-radius:20px; font-size:12px; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; margin-bottom:16px; border:1px solid #B8E0FF; }
+  h2.section-title { font-size:clamp(30px,4vw,52px); font-weight:900; letter-spacing:-1px; line-height:1.1; color:var(--black); margin-bottom:14px; }
+  h2.section-title span { color:var(--blue); }
+  .section-sub { font-size:16px; color:var(--gray); max-width:520px; line-height:1.7; margin-bottom:56px; }
+
+  /* SERVICES */
+  #services { background:var(--white); border-top:1px solid var(--border); }
+  .services-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:24px; }
+  .service-card { background:var(--white); border:1px solid var(--border); border-radius:12px; padding:32px 28px; transition:box-shadow .25s, transform .25s, border-color .25s; }
+  .service-card:hover { box-shadow:0 12px 40px rgba(56,182,255,0.15); transform:translateY(-4px); border-color:var(--blue); }
+  .service-icon-wrap { width:52px; height:52px; background:#EFF8FF; border-radius:12px; display:flex; align-items:center; justify-content:center; font-size:26px; margin-bottom:18px; }
+  .service-card h3 { font-size:18px; font-weight:800; margin-bottom:10px; color:var(--black); }
+  .service-card p { font-size:14px; color:var(--gray); line-height:1.7; }
+
+  /* PORTFOLIO */
+  #portfolio { background:#F8FAFB; border-top:1px solid var(--border); }
+  .portfolio-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:20px; }
+  .portfolio-card { background:var(--white); border:1px solid var(--border); border-radius:12px; overflow:hidden; cursor:pointer; transition:box-shadow .25s, transform .25s; }
+  .portfolio-card:hover { box-shadow:0 12px 40px rgba(0,0,0,0.1); transform:translateY(-4px); }
+  .portfolio-card.wide { grid-column:span 2; }
+  .portfolio-thumb { width:100%; height:220px; background:linear-gradient(135deg,#EFF8FF,#DBEEFF); display:flex; align-items:center; justify-content:center; font-size:64px; position:relative; overflow:hidden; }
+  .portfolio-card.wide .portfolio-thumb { height:280px; }
+  .portfolio-thumb img { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; opacity:0.85; transition:transform .4s, opacity .4s; }
+  .portfolio-card:hover .portfolio-thumb img { transform:scale(1.04); opacity:1; }
+  .portfolio-thumb-emoji { position:relative; z-index:1; opacity:0.4; }
+  .portfolio-body { padding:22px 24px; }
+  .portfolio-tag { font-size:11px; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; color:var(--blue); margin-bottom:6px; display:block; }
+  .portfolio-body h4 { font-size:17px; font-weight:800; color:var(--black); display:flex; align-items:center; justify-content:space-between; }
+  .portfolio-arrow { color:var(--blue); font-size:18px; }
+
+  /* PREVIEW */
+  #preview { background:var(--white); border-top:1px solid var(--border); }
+  .preview-browser { border-radius:12px; overflow:hidden; border:1px solid var(--border); box-shadow:0 20px 60px rgba(0,0,0,0.1); }
+  .preview-bar { background:#F8FAFB; border-bottom:1px solid var(--border); padding:12px 18px; display:flex; align-items:center; gap:12px; }
+  .preview-dots { display:flex; gap:6px; }
+  .preview-dot { width:11px; height:11px; border-radius:50%; }
+  .preview-dot:nth-child(1){background:#FF5F57;} .preview-dot:nth-child(2){background:#FEBC2E;} .preview-dot:nth-child(3){background:#28C840;}
+  .preview-url { flex:1; background:var(--white); border:1px solid var(--border); border-radius:6px; padding:5px 14px; font-size:13px; color:var(--gray); }
+  .preview-visit { background:var(--black); color:var(--white); border:none; padding:7px 16px; font-family:'Inter',sans-serif; font-weight:700; font-size:12px; cursor:pointer; text-decoration:none; border-radius:5px; transition:background .2s; white-space:nowrap; }
+  .preview-visit:hover { background:var(--blue); }
+  .preview-iframe-wrap { width:100%; height:560px; overflow:hidden; background:#f5f5f5; position:relative; }
+  .preview-iframe-wrap iframe { width:100%; height:100%; border:none; display:block; }
+  .preview-overlay { position:absolute; inset:0; z-index:2; display:flex; align-items:center; justify-content:center; cursor:pointer; }
+  .preview-overlay-btn { background:rgba(0,0,0,0.75); color:var(--white); padding:12px 28px; border-radius:8px; font-weight:700; font-size:14px; opacity:0; transition:opacity .3s; pointer-events:none; text-transform:uppercase; }
+  .preview-overlay:hover .preview-overlay-btn { opacity:1; }
+
+  /* REVIEWS */
+  #reviews { background:#F8FAFB; border-top:1px solid var(--border); }
+  .reviews-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:24px; }
+  .review-card { background:var(--white); border:1px solid var(--border); border-radius:12px; padding:28px; transition:box-shadow .25s, transform .25s; }
+  .review-card:hover { box-shadow:0 8px 30px rgba(0,0,0,0.08); transform:translateY(-3px); }
+  .stars { color:#F59E0B; font-size:15px; letter-spacing:2px; margin-bottom:16px; }
+  .review-text { font-size:14px; color:#444; line-height:1.8; margin-bottom:22px; }
+  .review-author { display:flex; align-items:center; gap:12px; }
+  .author-avatar { width:40px; height:40px; border-radius:50%; background:var(--blue); display:flex; align-items:center; justify-content:center; font-weight:800; font-size:16px; color:var(--white); flex-shrink:0; }
+  .author-name { font-weight:700; font-size:14px; color:var(--black); }
+  .author-role { font-size:12px; color:var(--gray); margin-top:2px; }
+
+  /* CONTACT */
+  #contact { background:var(--black); padding:100px 0; }
+  .contact-cta { max-width:600px; margin:0 auto; text-align:center; padding:0 60px; display:flex; flex-direction:column; align-items:center; gap:20px; }
+  .contact-cta h2 { color:var(--white); }
+  .contact-cta p { color:#888; font-size:16px; line-height:1.7; }
+  .btn-discord { display:inline-flex; align-items:center; gap:10px; background:var(--blue); color:var(--white); padding:15px 36px; border-radius:8px; font-weight:800; font-size:15px; text-decoration:none; transition:background .2s, transform .15s; }
+  .btn-discord:hover { background:var(--blue-dark); transform:translateY(-2px); }
+  .contact-perks-row { display:flex; flex-wrap:wrap; justify-content:center; gap:14px 28px; }
+  .contact-perks-row span { display:flex; align-items:center; gap:7px; color:#666; font-size:13px; font-weight:600; }
+  .perk-dot { width:6px; height:6px; background:var(--blue); border-radius:50%; flex-shrink:0; }
+
+  /* MODALS */
+  .modal-overlay { display:none; position:fixed; inset:0; z-index:1000; background:rgba(0,0,0,0.8); align-items:center; justify-content:center; backdrop-filter:blur(4px); }
+  .modal-overlay.active { display:flex; }
+  .modal-box { background:var(--white); border-radius:12px; padding:28px; position:relative; max-width:90vw; max-height:90vh; overflow:hidden; animation:fadeUp .25s ease; }
+  .video-modal-box { width:min(820px,92vw); padding:24px; }
+  .lightbox-box { width:min(860px,90vw); }
+  .modal-close { position:absolute; top:14px; right:16px; background:var(--light-gray); border:none; color:var(--black); font-size:16px; cursor:pointer; width:30px; height:30px; border-radius:50%; display:flex; align-items:center; justify-content:center; transition:background .2s; }
+  .modal-close:hover { background:var(--border); }
+  .modal-title { font-size:18px; font-weight:800; color:var(--black); display:block; margin-bottom:16px; }
+  .lightbox-header { display:flex; align-items:center; justify-content:space-between; margin-bottom:16px; }
+  .lightbox-header .modal-title { margin-bottom:0; }
+  .lightbox-counter { color:var(--gray); font-size:13px; font-weight:600; }
+  .lightbox-img-wrap { display:flex; align-items:center; justify-content:center; min-height:300px; background:var(--light-gray); border-radius:8px; }
+  .lightbox-nav { display:flex; gap:10px; margin-top:16px; justify-content:center; }
+  .lb-btn { background:var(--black); color:var(--white); border:none; padding:9px 24px; border-radius:6px; font-family:'Inter',sans-serif; font-weight:700; font-size:13px; cursor:pointer; transition:background .2s; }
+  .lb-btn:hover { background:var(--blue); }
+
+  /* FOOTER */
+  footer { background:#0A0A0A; border-top:1px solid #1a1a1a; padding:36px 60px; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:20px; }
+  .footer-left { display:flex; flex-direction:column; gap:5px; }
+  .footer-logo-img { height:36px; width:auto; object-fit:contain; }
+  .footer-logo-text { font-family:'Bebas Neue',cursive; font-size:22px; letter-spacing:3px; color:var(--white); text-decoration:none; display:none; }
+  .footer-logo-text span { color:var(--blue); }
+  .footer-madeby { font-size:12px; color:#555; font-weight:600; }
+  .footer-madeby span { color:var(--blue); }
+  .footer-links { display:flex; gap:28px; list-style:none; }
+  .footer-links a { color:#555; font-size:13px; font-weight:600; text-decoration:none; transition:color .2s; }
+  .footer-links a:hover { color:var(--white); }
+  .footer-copy { color:#444; font-size:12px; }
+
+  @keyframes fadeUp { from{opacity:0;transform:translateY(20px)} to{opacity:1;transform:translateY(0)} }
+  .reveal { opacity:0; transform:translateY(30px); transition:opacity .6s ease, transform .6s ease; }
+  .reveal.visible { opacity:1; transform:translateY(0); }
+
+  @media (max-width:960px) {
+    nav { padding:0 20px; }
+    .nav-links { display:none; }
+    #hero { padding:100px 20px 80px; }
+    .section-wrap { padding:0 24px; }
+    .services-grid { grid-template-columns:1fr; }
+    .portfolio-grid { grid-template-columns:1fr; }
+    .portfolio-card.wide { grid-column:span 1; }
+    .reviews-grid { grid-template-columns:1fr; }
+    footer { flex-direction:column; padding:28px 24px; }
+    .contact-cta { padding:0 24px; }
   }
-
-  .step-options {
-    gap: 8px;
-  }
-
-  .step-option {
-    padding: 7px 12px;
-    font-size: 13px;
-  }
-
-  .detail-main {
-    padding: 24px 16px;
-  }
-
-  .detail-banner {
-    width: 100%;
-    height: 160px;
-    font-size: 26px;
-  }
-
-  .specs-grid {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 10px;
-  }
-
-  .spec-card {
-    padding: 14px 8px;
-  }
-
-  .spec-card .spec-value {
-    font-size: 16px;
-  }
-
-  .spec-card .spec-label {
-    font-size: 10px;
-  }
-
-  .btn-order-now {
-    padding: 12px 32px;
-    font-size: 15px;
-    width: 100%;
-  }
-
-  .footer-top {
-    grid-template-columns: 1fr;
-    gap: 32px;
-    padding: 36px 20px 28px;
-  }
-
-  .footer-bottom {
-    padding: 16px 20px;
-    flex-direction: column;
-    gap: 6px;
-    text-align: center;
-  }
-
-  .badge-uptime {
-    font-size: 10px;
-    padding: 5px 10px;
-    text-align: center;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-
-  .detail-plan-name {
-    font-size: 22px;
-  }
-
-  .detail-price {
-    font-size: 18px;
-  }
-}
-
-@media (max-width: 420px) {
-  .hero-title {
-    font-size: 36px;
-  }
-
-  .plan-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .hero-features {
-    grid-template-columns: 1fr 1fr;
-  }
-
-  .specs-grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-
-.adv-features-section {
-  padding: 72px 60px;
-  background: var(--bg-main);
-}
-
-.adv-features-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 7px;
-  background: rgba(29,78,216,0.15);
-  border: 1px solid rgba(29,78,216,0.35);
-  color: var(--accent-light);
-  font-size: 12px;
-  font-weight: 600;
-  padding: 6px 14px;
-  border-radius: 20px;
-  margin-bottom: 20px;
-  letter-spacing: 0.3px;
-}
-
-.adv-features-title {
-  font-family: 'Rajdhani', sans-serif;
-  font-size: 46px;
-  font-weight: 700;
-  color: var(--text-main);
-  margin-bottom: 10px;
-  letter-spacing: -0.5px;
-}
-
-.adv-features-title span {
-  color: var(--accent-light);
-}
-
-.adv-features-sub {
-  font-size: 15px;
-  color: var(--text-muted);
-  margin-bottom: 48px;
-}
-
-.adv-features-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 16px;
-}
-
-.adv-feat-card {
-  background: var(--bg-card);
-  border: 1px solid var(--border);
-  border-radius: 12px;
-  padding: 22px 20px;
-  transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
-}
-
-.adv-feat-card:hover {
-  border-color: rgba(29,78,216,0.5);
-  transform: translateY(-3px);
-  box-shadow: 0 8px 24px rgba(29,78,216,0.1);
-}
-
-.adv-feat-card-wide {
-  grid-column: span 2;
-}
-
-.adv-feat-top {
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  margin-bottom: 12px;
-}
-
-.adv-feat-top h4 {
-  font-family: 'Rajdhani', sans-serif;
-  font-size: 18px;
-  font-weight: 700;
-  color: var(--text-main);
-}
-
-.adv-feat-icon {
-  width: 36px;
-  height: 36px;
-  background: rgba(29,78,216,0.12);
-  border: 1px solid rgba(29,78,216,0.25);
-  border-radius: 8px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--accent-light);
-  flex-shrink: 0;
-}
-
-.adv-feat-card p {
-  font-size: 13px;
-  color: var(--text-muted);
-  line-height: 1.6;
-}
-
-.locations-section {
-  padding: 72px 60px;
-  background: #080a14;
-  text-align: center;
-}
-
-body.light-theme .locations-section {
-  background: #e0e3f0;
-}
-
-.locations-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 7px;
-  background: rgba(29,78,216,0.15);
-  border: 1px solid rgba(29,78,216,0.35);
-  color: var(--accent-light);
-  font-size: 12px;
-  font-weight: 600;
-  padding: 6px 14px;
-  border-radius: 20px;
-  margin-bottom: 20px;
-}
-
-.locations-title {
-  font-family: 'Rajdhani', sans-serif;
-  font-size: 46px;
-  font-weight: 700;
-  color: var(--text-main);
-  margin-bottom: 12px;
-}
-
-.locations-title span {
-  color: var(--accent-light);
-}
-
-.locations-sub {
-  font-size: 15px;
-  color: var(--text-muted);
-  margin-bottom: 36px;
-  max-width: 540px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.locations-node {
-  display: inline-flex;
-  align-items: center;
-  gap: 14px;
-  background: var(--bg-card);
-  border: 1px solid var(--border);
-  border-radius: 12px;
-  padding: 14px 24px;
-  margin-bottom: 40px;
-  text-align: left;
-}
-
-.locations-node-flag {
-  font-size: 28px;
-  line-height: 1;
-}
-
-.locations-node-name {
-  font-family: 'Rajdhani', sans-serif;
-  font-size: 17px;
-  font-weight: 700;
-  color: var(--text-main);
-  margin-bottom: 3px;
-}
-
-.locations-node-specs {
-  font-size: 12px;
-  color: var(--accent-blue-light);
-}
-
-.locations-map {
-  max-width: 1000px;
-  margin: 0 auto;
-  position: relative;
-}
-
-.world-map-container {
-  width: 100%;
-  border-radius: 16px;
-  overflow: hidden;
-  background: transparent;
-  position: relative;
-}
-
-.world-map-img {
-  width: 100%;
-  height: auto;
-  display: block;
-  filter: brightness(0.3) sepia(1) hue-rotate(200deg) saturate(0.5);
-  border-radius: 16px;
-}
-
-.india-dot {
-  position: absolute;
-  width: 14px;
-  height: 14px;
-  background: #4f6ef7;
-  border-radius: 50%;
-  top: 45%;
-  left: 67%;
-  transform: translate(-50%, -50%);
-  z-index: 3;
-  box-shadow: 0 0 12px 4px rgba(79,110,247,0.8);
-}
-
-.india-dot-ring {
-  position: absolute;
-  width: 36px;
-  height: 36px;
-  border: 2px solid rgba(79,110,247,0.5);
-  border-radius: 50%;
-  top: 45%;
-  left: 67%;
-  transform: translate(-50%, -50%);
-  z-index: 2;
-  animation: ping 1.8s ease-out infinite;
-}
-
-@keyframes ping {
-  0%   { transform: translate(-50%,-50%) scale(1); opacity: 0.8; }
-  100% { transform: translate(-50%,-50%) scale(2.2); opacity: 0; }
-}
-
-@media (max-width: 768px) {
-  .adv-features-section {
-    padding: 48px 16px;
-  }
-
-  .adv-features-title {
-    font-size: 34px;
-  }
-
-  .adv-features-grid {
-    grid-template-columns: 1fr 1fr;
-    gap: 12px;
-  }
-
-  .adv-feat-card-wide {
-    grid-column: span 2;
-  }
-
-  .locations-section {
-    padding: 48px 16px;
-  }
-
-  .locations-title {
-    font-size: 34px;
-  }
-
-  .locations-node {
-    flex-direction: column;
-    text-align: center;
-    padding: 14px 16px;
-  }
-}
-
-@media (max-width: 420px) {
-  .adv-features-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .adv-feat-card-wide {
-    grid-column: span 1;
-  }
-}
 </style>
 </head>
 <body>
 
 <nav>
-  <a class="nav-logo" onclick="goHome()">
-    <img id="site-logo" src="icons/logo-dark.png" alt="Axyn.Cloud" style="height:36px;width:auto;object-fit:contain;" onerror="this.style.display='none'; document.getElementById('logo-fallback').style.display='flex';">
-    <div id="logo-fallback" class="nav-logo-icon" style="display:none;">A</div>
-    <span class="nav-logo-text">Axyn<span class="nav-logo-cloud">.Cloud</span></span>
+  <a href="#" class="nav-logo">
+    <img src="logo.png" alt="StackEdge Studio"
+         onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+    <span class="nav-logo-text">Stack<span>Edge</span></span>
   </a>
-  <div class="nav-links" style="display:flex;flex-direction:row;align-items:center;gap:30px;flex-wrap:nowrap;">
-    <span class="nav-home-link" onclick="goHome()" style="white-space:nowrap;">Home</span>
-    <div class="nav-dropdown" style="display:inline-flex;align-items:center;">
-      <button class="nav-dropdown-toggle" id="shop-toggle" onclick="toggleShop()" style="white-space:nowrap;">
-        Shop <span class="arrow">▾</span>
-      </button>
-      <div class="nav-dropdown-menu" id="shop-menu">
-        <a onclick="closeDropdowns(); showPlans('epyc')">Amd Epyc Plans</a>
-        <a onclick="closeDropdowns(); showPlans('ryzen')">AMD Ryzen 9 Plans</a>
-        <a onclick="closeDropdowns(); showPlans('xeon')">Intel Xeon Plans</a>
-      </div>
-    </div>
-  </div>
-  <div class="nav-right">
-    <div class="locale-dropdown">
-      <button class="locale-toggle" id="locale-toggle" onclick="toggleLocale()">
-        <span id="locale-label">EN | US Dollar</span> <span style="font-size:11px;">▾</span>
-      </button>
-      <div class="locale-menu" id="locale-menu">
-        <div class="locale-section-label">Language</div>
-        <button onclick="setLang('EN')" id="lang-EN" class="selected">🇺🇸 English</button>
-        <button onclick="setLang('FR')" id="lang-FR">🇫🇷 French</button>
-        <button onclick="setLang('DE')" id="lang-DE">🇩🇪 German</button>
-        <button onclick="setLang('ES')" id="lang-ES">🇪🇸 Spanish</button>
-        <button onclick="setLang('PT')" id="lang-PT">🇧🇷 Portuguese</button>
-        <div class="locale-divider"></div>
-        <div class="locale-section-label">Currency</div>
-        <button onclick="setCurrency('USD')" id="cur-USD" class="selected">💵 US Dollar (USD)</button>
-        <button onclick="setCurrency('INR')" id="cur-INR">🇮🇳 Indian Rupee (INR)</button>
-        <button onclick="setCurrency('EUR')" id="cur-EUR">💶 Euro (EUR)</button>
-        <button onclick="setCurrency('GBP')" id="cur-GBP">💷 British Pound (GBP)</button>
-        <button onclick="setCurrency('CAD')" id="cur-CAD">🍁 Canadian Dollar (CAD)</button>
-        <button onclick="setCurrency('AUD')" id="cur-AUD">🦘 Australian Dollar (AUD)</button>
-      </div>
-    </div>
-    <button id="theme-toggle" onclick="toggleTheme()" title="Toggle theme" style="width:36px;height:36px;background:transparent;border:1px solid var(--border);border-radius:6px;cursor:pointer;display:flex;align-items:center;justify-content:center;color:var(--text-muted);transition:border-color 0.2s,color 0.2s;" onmouseover="this.style.borderColor='var(--accent-blue)';this.style.color='#fff'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--text-muted)'">
-      <svg id="theme-icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
-      <svg id="theme-icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none;"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
-    </button>
-    <a href="https://discord.gg/bqsYCzMqef" target="_blank" class="btn-discord">
-      <svg width="18" height="18" viewBox="0 0 127.14 96.36" fill="currentColor"><path d="M107.7 8.07A105.15 105.15 0 0 0 81.47 0a72.06 72.06 0 0 0-3.36 6.83 97.68 97.68 0 0 0-29.11 0A72.37 72.37 0 0 0 45.64 0a105.89 105.89 0 0 0-26.25 8.09C2.79 32.65-1.71 56.6.54 80.21a105.73 105.73 0 0 0 32.17 16.15 77.7 77.7 0 0 0 6.89-11.11 68.42 68.42 0 0 1-10.85-5.18c.91-.66 1.8-1.34 2.66-2a75.57 75.57 0 0 0 64.32 0c.87.71 1.76 1.39 2.66 2a68.68 68.68 0 0 1-10.87 5.19 77 77 0 0 0 6.89 11.1 105.25 105.25 0 0 0 32.19-16.14c2.64-27.38-4.51-51.11-18.9-72.14zM42.45 65.69C36.18 65.69 31 60 31 53s5-12.74 11.43-12.74S54 46 53.89 53s-5.05 12.69-11.44 12.69zm42.24 0C78.41 65.69 73.25 60 73.25 53s5-12.74 11.44-12.74S96.23 46 96.12 53s-5.04 12.69-11.43 12.69z"/></svg>
-      Discord
-    </a>
-  </div>
+  <ul class="nav-links">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#portfolio">Work</a></li>
+    <li><a href="#reviews">Reviews</a></li>
+  </ul>
+  <a href="https://discord.gg/H2VxDzweeG" target="_blank" rel="noopener" class="nav-cta">Get In Touch!</a>
 </nav>
 
-<div id="page-home" class="page active">
+<section id="hero">
+  <div class="hero-inner">
 
-  <div class="hero">
-    <div class="hero-bg"></div>
-    <div class="hero-grid-pattern"></div>
-    <div class="hero-glow"></div>
-    <div class="hero-glow2"></div>
-
-    <div class="hero-content">
-      <h1 class="hero-title">Host your own<br><span>Servers</span></h1>
-      <p class="hero-sub">Experience lightning-fast performance, unbeatable reliability, and 24/7 support for all your favorite games.</p>
-      <div class="hero-actions">
-        <button class="btn-get-started" onclick="showPlans('epyc')">Get started →</button>
-      </div>
+    <div class="hero-logo reveal">
+      <img src="logo.png" alt="StackEdge Studio"
+           onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+      <span class="hero-logo-text">Stack<span>Edge</span></span>
     </div>
 
-    <div class="hero-features">
-      <div class="hero-feat-card">
-        <div class="hero-feat-text">
-          <h4>Instant Setup</h4>
-          <p>Get your server running in under 60 seconds</p>
-        </div>
-        <div class="hero-feat-icon">⊟</div>
-      </div>
-      <div class="hero-feat-card">
-        <div class="hero-feat-text">
-          <h4>DDoS Protection</h4>
-          <p>Enterprise-grade security for your servers</p>
-        </div>
-        <div class="hero-feat-icon">⛨</div>
-      </div>
-      <div class="hero-feat-card">
-        <div class="hero-feat-text">
-          <h4>99.9% Uptime</h4>
-          <p>Reliable hosting with guaranteed availability</p>
-        </div>
-        <div class="hero-feat-icon">◷</div>
-      </div>
-      <div class="hero-feat-card">
-        <div class="hero-feat-text">
-          <h4>24/7 Support</h4>
-          <p>Expert help whenever you need it</p>
-        </div>
-        <div class="hero-feat-icon">⚇</div>
-      </div>
+    <div class="hero-badge reveal">
+      <span class="hero-badge-dot"></span> Fast &amp; Reliable Creative Services
     </div>
-  </div>
 
-  <div class="home-services">
-    <div class="home-services-title">Services</div>
-    <div class="service-grid">
+    <h1 class="hero-h1 reveal">
+      Make Your Projects <span>Come To Life!</span>
+    </h1>
 
-      <div class="service-card" onclick="showPlans('epyc')">
-        <div class="service-card-img-wrap">
-          <img src="icons/epyc.png" alt="AMD EPYC" onerror="this.style.display='none'">
-        </div>
-        <div class="service-card-body">
-          <h3>Amd Epyc Plans</h3>
-          <p>These are High Performance paid plans with Low Latency, 99.9% Uptime &amp; 24/7 Support. Pricing starts from $0.45/GB. All plans have AMD Epyc 7763 Processor.</p>
-          <button class="btn-view-all">View All →</button>
-        </div>
-      </div>
+    <p class="hero-sub reveal">
+      Websites, Minecraft builds, videos, thumbnails &amp; more — built fast, built right.
+    </p>
 
-      <div class="service-card" onclick="showPlans('ryzen')">
-        <div class="service-card-img-wrap">
-          <img src="icons/ryzen9.png" alt="AMD Ryzen 9" onerror="this.style.display='none'">
-        </div>
-        <div class="service-card-body">
-          <h3>AMD Ryzen 9 Plans</h3>
-          <p>These are High Performance paid plans with Low Latency, 99.9% Uptime &amp; 24/7 Support. Pricing starts from $0.65/GB. All plans have AMD Ryzen 9 Processor.</p>
-          <button class="btn-view-all">View All →</button>
-        </div>
-      </div>
-
-      <div class="service-card" onclick="showPlans('xeon')">
-        <div class="service-card-img-wrap">
-          <img src="icons/xeon.png" alt="Intel Xeon" onerror="this.style.display='none'">
-        </div>
-        <div class="service-card-body">
-          <h3>Intel Xeon Plans</h3>
-          <p>These are High Performance paid plans with Low Latency, 99.9% Uptime &amp; 24/7 Support. Pricing starts from $0.35/GB. All plans have Intel Xeon E5 2673 Processor.</p>
-          <button class="btn-view-all">View All →</button>
-        </div>
-      </div>
-
+    <div class="hero-btns reveal">
+      <a href="https://discord.gg/H2VxDzweeG" target="_blank" rel="noopener" class="btn-black">Get In Touch! →</a>
+      <a href="#services" class="btn-outline">Our Services</a>
     </div>
-  </div>
 
-  <div class="adv-features-section">
-    <div class="adv-features-badge">
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-      We Won't Disappoint
-    </div>
-    <h2 class="adv-features-title">Advanced <span>Features</span></h2>
-    <p class="adv-features-sub">Everything you need for professional server hosting</p>
-    <div class="adv-features-grid">
-      <div class="adv-feat-card">
-        <div class="adv-feat-top">
-          <h4>High Performance</h4>
-          <div class="adv-feat-icon">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/><line x1="9" y1="1" x2="9" y2="4"/><line x1="15" y1="1" x2="15" y2="4"/><line x1="9" y1="20" x2="9" y2="23"/><line x1="15" y1="20" x2="15" y2="23"/><line x1="20" y1="9" x2="23" y2="9"/><line x1="20" y1="14" x2="23" y2="14"/><line x1="1" y1="9" x2="4" y2="9"/><line x1="1" y1="14" x2="4" y2="14"/></svg>
-          </div>
-        </div>
-        <p>Powered by latest generation processors for maximum performance</p>
-      </div>
-      <div class="adv-feat-card">
-        <div class="adv-feat-top">
-          <h4>Low Latency</h4>
-          <div class="adv-feat-icon">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
-          </div>
-        </div>
-        <p>Optimized network infrastructure for minimal lag and delay</p>
-      </div>
-      <div class="adv-feat-card adv-feat-card-wide">
-        <div class="adv-feat-top">
-          <h4>Advanced Security</h4>
-          <div class="adv-feat-icon">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-          </div>
-        </div>
-        <p>Our system is protected by advanced, multi-layered security protocols designed to detect, isolate, and neutralize threats in real time — ensuring your data remains safe around the clock</p>
-      </div>
-      <div class="adv-feat-card">
-        <div class="adv-feat-top">
-          <h4>Auto Recovery</h4>
-          <div class="adv-feat-icon">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
-          </div>
-        </div>
-        <p>Automatic server recovery and backup systems</p>
-      </div>
-      <div class="adv-feat-card">
-        <div class="adv-feat-top">
-          <h4>Full Control</h4>
-          <div class="adv-feat-icon">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M4.93 4.93a10 10 0 0 0 0 14.14"/></svg>
-          </div>
-        </div>
-        <p>Complete server control panel with advanced configuration options</p>
-      </div>
-      <div class="adv-feat-card">
-        <div class="adv-feat-top">
-          <h4>Resource Scaling</h4>
-          <div class="adv-feat-icon">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
-          </div>
-        </div>
-        <p>Dynamic resource allocation based on server demands</p>
-      </div>
-      <div class="adv-feat-card">
-        <div class="adv-feat-top">
-          <h4>Global Network</h4>
-          <div class="adv-feat-icon">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
-          </div>
-        </div>
-        <p>Worldwide server locations for optimal connectivity</p>
-      </div>
-      <div class="adv-feat-card">
-        <div class="adv-feat-top">
-          <h4>24/7 Support</h4>
-          <div class="adv-feat-icon">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-          </div>
-        </div>
-        <p>Expert help available around the clock whenever you need it</p>
-      </div>
-    </div>
-  </div>
+    <p class="hero-24h reveal">⏱ 24 hour support!</p>
 
-  <div class="locations-section">
-    <div class="locations-badge">
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
-      Global Infrastructure
-    </div>
-    <h2 class="locations-title">Global <span>Locations</span></h2>
-    <p class="locations-sub">Strategically positioned servers for optimal performance and ultra-low latency</p>
-    <div class="locations-node">
-      <span class="locations-node-flag">🇮🇳</span>
+    <div class="hero-stats reveal">
       <div>
-        <div class="locations-node-name">India - NCR</div>
-        <div class="locations-node-specs">Intel Xeon E-5 2673 V4, Intel Xeon E-5 2682 V4, AMD Ryzen 9 7900X</div>
+        <div class="stat-num">20<span>+</span></div>
+        <div class="stat-label">Projects Done</div>
+      </div>
+      <div>
+        <div class="stat-num">10<span>+</span></div>
+        <div class="stat-label">Happy Clients</div>
+      </div>
+      <div>
+        <div class="stat-num">24<span>H</span></div>
+        <div class="stat-label">Support</div>
       </div>
     </div>
 
+  </div>
+</section>
 
+<section id="services">
+  <div class="section-wrap">
+    <div class="reveal">
+      <span class="section-tag">What We Do</span>
+      <h2 class="section-title">Our Services</h2>
+      <p class="section-sub">Everything your brand and content needs — built by passionate creators who know their craft.</p>
+    </div>
+    <div class="services-grid">
+      <div class="service-card reveal"><div class="service-icon-wrap">🌐</div><h3>Website Design & Dev</h3><p>Fast, modern websites built to convert. From landing pages to full platforms — pixel-perfect every time.</p></div>
+      <div class="service-card reveal"><div class="service-icon-wrap">🧱</div><h3>Minecraft Builds</h3><p>Epic custom Minecraft builds — spawn areas, lobbies, hubs, arenas, and full world projects.</p></div>
+      <div class="service-card reveal"><div class="service-icon-wrap">🎬</div><h3>Video Production</h3><p>From trailers to full edits — high-quality video content that captures and keeps your audience.</p></div>
+      <div class="service-card reveal"><div class="service-icon-wrap">🖼️</div><h3>Thumbnails</h3><p>Eye-catching thumbnails that drive clicks. Bold, branded, and designed to stand out.</p></div>
+      <div class="service-card reveal"><div class="service-icon-wrap">🎨</div><h3>Branding & Graphics</h3><p>Logos, banners, overlays, channel art — full brand packages to make you look like a pro.</p></div>
+      <div class="service-card reveal" style="background:#EFF8FF;border-color:#B8E0FF;display:flex;flex-direction:column;justify-content:center;">
+        <p style="font-size:15px;font-weight:700;color:#0A0A0A;margin-bottom:12px;">Not sure what you need?</p>
+        <p style="font-size:14px;color:#666;margin-bottom:20px;line-height:1.6;">Jump in our Discord and we'll figure it out together.</p>
+        <a href="https://discord.gg/H2VxDzweeG" target="_blank" rel="noopener" class="btn-black" style="font-size:13px;padding:10px 20px;align-self:flex-start;">Chat With Us →</a>
       </div>
     </div>
   </div>
+</section>
 
-</div>
-
-<div id="page-plans" class="page">
-  <div class="plans-page">
-    <div class="plans-sidebar">
-      <h2 id="sidebar-title">Plans</h2>
-      <p id="sidebar-desc">High Performance plans.</p>
-      <div class="sidebar-nav">
-        <a onclick="showPlans('epyc')" id="snav-epyc">Amd Epyc Plans</a>
-        <a onclick="showPlans('ryzen')" id="snav-ryzen">AMD Ryzen 9 Plans</a>
-        <a onclick="showPlans('xeon')" id="snav-xeon">Intel Xeon Plans</a>
-      </div>
+<section id="portfolio">
+  <div class="section-wrap">
+    <div class="reveal">
+      <span class="section-tag">Our Work</span>
+      <h2 class="section-title">Featured Projects</h2>
+      <p class="section-sub">A look at some of the work we're proud of — across all our services.</p>
     </div>
-    <div class="plans-main">
-      <div class="order-steps">
-
-        <div class="step-block">
-          <div class="step-label">1. Plan Type</div>
-          <div class="step-options">
-            <button class="step-option selected" id="pt-epyc" onclick="selectPlanType('epyc')">
-              <img src="icons/epyc.png" onerror="this.style.display='none'"> AMD EPYC
-            </button>
-            <button class="step-option" id="pt-ryzen" onclick="selectPlanType('ryzen')">
-              <img src="icons/ryzen9.png" onerror="this.style.display='none'"> AMD Ryzen 9
-            </button>
-            <button class="step-option" id="pt-xeon" onclick="selectPlanType('xeon')">
-              <img src="icons/xeon.png" onerror="this.style.display='none'"> Intel Xeon
-            </button>
+    <div class="portfolio-grid reveal">
+      <div class="portfolio-card wide" onclick="window.open('https://deltatiers.nxen.uk/','_blank')">
+        <div style="height:300px; background:#f0f4f8; position:relative; overflow:hidden; border-radius:12px 12px 0 0;">
+          <!-- Browser bar -->
+          <div style="position:absolute; top:0; left:0; right:0; z-index:2; background:#f8f9fa; border-bottom:1px solid #e0e0e0; padding:7px 14px; display:flex; align-items:center; gap:10px;">
+            <div style="display:flex; gap:5px;">
+              <div style="width:10px;height:10px;border-radius:50%;background:#FF5F57;"></div>
+              <div style="width:10px;height:10px;border-radius:50%;background:#FEBC2E;"></div>
+              <div style="width:10px;height:10px;border-radius:50%;background:#28C840;"></div>
+            </div>
+            <div style="flex:1;background:#fff;border:1px solid #ddd;border-radius:4px;padding:3px 10px;font-size:11px;color:#888;">🔒 deltatiers.nxen.uk</div>
           </div>
-        </div>
-
-        <div class="step-block">
-          <div class="step-label">2. Location</div>
-          <div class="step-options">
-            <button class="step-option selected" id="loc-in" onclick="selectLocation('in')">
-              <span class="flag">🇮🇳</span> India
-            </button>
+          <!-- Live iframe -->
+          <div style="position:absolute;top:34px;left:0;right:0;bottom:0;overflow:hidden;">
+            <iframe src="https://deltatiers.nxen.uk/"
+                    style="width:100%;height:100%;border:none;pointer-events:none;"
+                    loading="lazy"
+                    sandbox="allow-scripts allow-same-origin"></iframe>
           </div>
+          <!-- Transparent click layer -->
+          <div style="position:absolute;inset:0;z-index:3;cursor:pointer;"></div>
         </div>
-
+        <div class="portfolio-body"><span class="portfolio-tag">Website</span><h4>DeltaTiers — Full Server Site <span class="portfolio-arrow">↗</span></h4></div>
       </div>
-      <div class="step-divider"></div>
-      <div class="choose-label">3. Choose Plan</div>
-      <div class="plan-grid" id="plan-grid"></div>
-    </div>
-  </div>
-</div>
-
-<div id="page-detail" class="page">
-  <div class="detail-page">
-    <div class="detail-sidebar">
-      <h2 id="detail-sidebar-title">Plans</h2>
-      <p id="detail-sidebar-desc">High Performance plans.</p>
-      <div class="sidebar-nav">
-        <a onclick="showPlans('epyc')" id="dsnav-epyc">Amd Epyc Plans</a>
-        <a onclick="showPlans('ryzen')" id="dsnav-ryzen">AMD Ryzen 9 Plans</a>
-        <a onclick="showPlans('xeon')" id="dsnav-xeon">Intel Xeon Plans</a>
+      <div class="portfolio-card" onclick="openLightbox('build')">
+        <div class="portfolio-thumb"><img src="projects/builds/1.png" alt="Custom Map" onerror="this.style.display='none'"><span class="portfolio-thumb-emoji">🧱</span></div>
+        <div class="portfolio-body"><span class="portfolio-tag">Minecraft Build</span><h4>Custom Map <span class="portfolio-arrow">⊕</span></h4></div>
+      </div>
+      <div class="portfolio-card" onclick="openVideoModal()">
+        <div class="portfolio-thumb">
+          <video muted loop playsinline style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0.7;" onmouseenter="this.play()" onmouseleave="this.pause()"><source src="projects/video.mp4" type="video/mp4"></video>
+          <span class="portfolio-thumb-emoji">🎬</span>
+        </div>
+        <div class="portfolio-body"><span class="portfolio-tag">Video</span><h4>Server Advertisement <span class="portfolio-arrow">▶</span></h4></div>
+      </div>
+      <div class="portfolio-card wide" onclick="openLightbox('thumb')">
+        <div class="portfolio-thumb"><img src="projects/thumbnails/1.png" alt="Thumbnail" onerror="this.style.display='none'"><span class="portfolio-thumb-emoji">🖼️</span></div>
+        <div class="portfolio-body"><span class="portfolio-tag">Thumbnails</span><h4>Custom Thumbnail Pack <span class="portfolio-arrow">⊕</span></h4></div>
       </div>
     </div>
-    <div class="detail-main" id="detail-main"></div>
   </div>
-</div>
-
-<script>
-var orderLinks = {
-  epyc: {
-    bronze:   'https://billing.axyn.cloud/products/amd-epyc-plans/bronze',
-    silver:   'https://billing.axyn.cloud/products/amd-epyc-plans/silver',
-    gold:     'https://billing.axyn.cloud/products/amd-epyc-plans/gold',
-    diamond:  'https://billing.axyn.cloud/products/amd-epyc-plans/diamond',
-    platinum: 'https://billing.axyn.cloud/products/amd-epyc-plans/platinum'
-  },
-  ryzen: {
-    bronze:   'https://billing.axyn.cloud/products/amd-ryzen-9-plans/bronze-2',
-    silver:   'https://billing.axyn.cloud/products/amd-ryzen-9-plans/silver-1',
-    gold:     'https://billing.axyn.cloud/products/amd-ryzen-9-plans/gold-1',
-    diamond:  'https://billing.axyn.cloud/products/amd-ryzen-9-plans/diamond-1',
-    platinum: 'https://billing.axyn.cloud/products/amd-ryzen-9-plans/platinum-1'
-  },
-  xeon: {
-    bronze:   'https://billing.axyn.cloud/products/intel-xeon-plans/bronze-3',
-    silver:   'https://billing.axyn.cloud/products/intel-xeon-plans/silver-3',
-    gold:     'https://billing.axyn.cloud/products/intel-xeon-plans/gold-3',
-    diamond:  'https://billing.axyn.cloud/products/intel-xeon-plans/diamond-3',
-    platinum: 'https://billing.axyn.cloud/products/intel-xeon-plans/platinum-3'
-  }
-};
-
-var currentLang     = 'EN';
-var currentCurrency = 'USD';
-var currentCategory = 'epyc';
-var currentLocation = 'in';
-var currentPage     = 'page-home';
-var currentDetailCat  = 'epyc';
-var currentDetailTier = 'bronze';
-
-var currencyNames   = { USD: 'US Dollar', INR: 'Indian Rupee', EUR: 'Euro', GBP: 'British Pound', CAD: 'Canadian Dollar', AUD: 'Australian Dollar' };
-var currencyRates   = { USD: 1, INR: 83.5, EUR: 0.92, GBP: 0.79, CAD: 1.36, AUD: 1.53 };
-var currencySymbols = { USD: '$', INR: '₹', EUR: '€', GBP: '£', CAD: 'CA$', AUD: 'A$' };
-
-var locationNames = {
-  in: { flag: '🇮🇳', label: 'India' }
-};
-
-var basePrices = {
-  epyc:  { bronze: 1.80, silver: 2.70, gold: 3.60, diamond: 5.40, platinum: 7.20 },
-  ryzen: { bronze: 2.60, silver: 3.90, gold: 5.20, diamond: 7.80, platinum: 10.40 },
-  xeon:  { bronze: 1.20, silver: 1.80, gold: 2.40, diamond: 3.60, platinum: 4.80 }
-};
-
-var pricing = {
-  epyc: {
-    title: 'Amd Epyc Plans',
-    desc: 'High Performance plans with Low Latency, 99.9% Uptime & 24/7 Support. AMD Epyc 7763 Processor.',
-    plans: [
-      { name: 'Bronze',   tier: 'bronze'   },
-      { name: 'Silver',   tier: 'silver'   },
-      { name: 'Gold',     tier: 'gold'     },
-      { name: 'Diamond',  tier: 'diamond'  },
-      { name: 'Platinum', tier: 'platinum' }
-    ]
-  },
-  ryzen: {
-    title: 'AMD Ryzen 9 Plans',
-    desc: 'High Performance plans with Low Latency, 99.9% Uptime & 24/7 Support. AMD Ryzen 9 Processor.',
-    plans: [
-      { name: 'Bronze',   tier: 'bronze'   },
-      { name: 'Silver',   tier: 'silver'   },
-      { name: 'Gold',     tier: 'gold'     },
-      { name: 'Diamond',  tier: 'diamond'  },
-      { name: 'Platinum', tier: 'platinum' }
-    ]
-  },
-  xeon: {
-    title: 'Intel Xeon Plans',
-    desc: 'High Performance plans with Low Latency, 99.9% Uptime & 24/7 Support. Intel Xeon E5 2673 Processor.',
-    plans: [
-      { name: 'Bronze',   tier: 'bronze'   },
-      { name: 'Silver',   tier: 'silver'   },
-      { name: 'Gold',     tier: 'gold'     },
-      { name: 'Diamond',  tier: 'diamond'  },
-      { name: 'Platinum', tier: 'platinum' }
-    ]
-  }
-};
-
-var specs = {
-  bronze:   { ram: '4GB',  disk: '8GB',  cpu: '2v Core' },
-  silver:   { ram: '6GB',  disk: '15GB', cpu: '4v Core' },
-  gold:     { ram: '8GB',  disk: '25GB', cpu: '4v Core' },
-  diamond:  { ram: '12GB', disk: '30GB', cpu: '6v Core' },
-  platinum: { ram: '16GB', disk: '40GB', cpu: '8v Core' }
-};
-
-function convertPrice(baseUSD) {
-  var rate = currencyRates[currentCurrency];
-  var sym  = currencySymbols[currentCurrency];
-  var val  = baseUSD * rate;
-  if (currentCurrency === 'INR') {
-    return sym + Math.round(val).toLocaleString('en-IN');
-  }
-  return sym + val.toFixed(2);
-}
-
-function toggleShop() {
-  var m = document.getElementById('shop-menu');
-  var t = document.getElementById('shop-toggle');
-  document.getElementById('locale-menu').classList.remove('open');
-  document.getElementById('locale-toggle').classList.remove('open');
-  m.classList.toggle('open');
-  t.classList.toggle('open');
-}
-
-function toggleLocale() {
-  var m = document.getElementById('locale-menu');
-  var t = document.getElementById('locale-toggle');
-  document.getElementById('shop-menu').classList.remove('open');
-  document.getElementById('shop-toggle').classList.remove('open');
-  m.classList.toggle('open');
-  t.classList.toggle('open');
-}
-
-function closeDropdowns() {
-  document.getElementById('shop-menu').classList.remove('open');
-  document.getElementById('shop-toggle').classList.remove('open');
-  document.getElementById('locale-menu').classList.remove('open');
-  document.getElementById('locale-toggle').classList.remove('open');
-}
-
-document.addEventListener('click', function(e) {
-  if (!e.target.closest('.nav-dropdown') && !e.target.closest('.locale-dropdown')) {
-    closeDropdowns();
-  }
-});
-
-function setLang(lang) {
-  currentLang = lang;
-  document.querySelectorAll('[id^="lang-"]').forEach(function(el) { el.classList.remove('selected'); });
-  document.getElementById('lang-' + lang).classList.add('selected');
-  updateLocaleLabel();
-  closeDropdowns();
-  refreshCurrentPage();
-}
-
-function setCurrency(cur) {
-  currentCurrency = cur;
-  document.querySelectorAll('[id^="cur-"]').forEach(function(el) { el.classList.remove('selected'); });
-  document.getElementById('cur-' + cur).classList.add('selected');
-  updateLocaleLabel();
-  closeDropdowns();
-  refreshCurrentPage();
-}
-
-function updateLocaleLabel() {
-  document.getElementById('locale-label').textContent = currentLang + ' | ' + currencyNames[currentCurrency];
-}
-
-function refreshCurrentPage() {
-  if (currentPage === 'page-plans') {
-    renderPlanGrid(currentCategory);
-  } else if (currentPage === 'page-detail') {
-    renderDetailPage(currentDetailCat, currentDetailTier);
-  }
-}
-
-function showPage(id) {
-  document.querySelectorAll('.page').forEach(function(p) { p.classList.remove('active'); });
-  document.getElementById(id).classList.add('active');
-  currentPage = id;
-}
-
-function goHome() {
-  showPage('page-home');
-}
-
-function selectPlanType(cat) {
-  currentCategory = cat;
-  document.querySelectorAll('[id^="pt-"]').forEach(function(el) { el.classList.remove('selected'); });
-  document.getElementById('pt-' + cat).classList.add('selected');
-  updateSidebarActive(cat);
-  document.getElementById('sidebar-title').textContent = pricing[cat].title;
-  document.getElementById('sidebar-desc').textContent  = pricing[cat].desc;
-  renderPlanGrid(cat);
-}
-
-function selectLocation(loc) {
-  currentLocation = loc;
-  document.querySelectorAll('[id^="loc-"]').forEach(function(el) { el.classList.remove('selected'); });
-  document.getElementById('loc-' + loc).classList.add('selected');
-}
-
-function updateSidebarActive(cat) {
-  ['epyc','ryzen','xeon'].forEach(function(k) {
-    var a = document.getElementById('snav-' + k);
-    var b = document.getElementById('dsnav-' + k);
-    if (a) a.classList.toggle('active', k === cat);
-    if (b) b.classList.toggle('active', k === cat);
-  });
-}
-
-function renderPlanGrid(cat) {
-  var data = pricing[cat];
-  var grid = document.getElementById('plan-grid');
-  grid.innerHTML = '';
-  data.plans.forEach(function(plan, i) {
-    var price = convertPrice(basePrices[cat][plan.tier]);
-    var sp    = specs[plan.tier];
-    var card  = document.createElement('div');
-    card.className = 'plan-card';
-    card.style.animationDelay = (i * 0.055) + 's';
-    card.innerHTML =
-      '<div class="plan-card-banner ' + plan.tier + '-banner">' + plan.name.toUpperCase() + ' PLAN</div>' +
-      '<div class="plan-card-info">' +
-        '<h4>' + plan.name + '</h4>' +
-        '<div class="plan-card-price">' + price + ' / mo</div>' +
-      '</div>' +
-      '<div class="plan-card-specs">' +
-        '<div class="plan-card-spec-row"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="8" rx="2"/><rect x="2" y="14" width="20" height="8" rx="2"/></svg>' + sp.ram + ' RAM</div>' +
-        '<div class="plan-card-spec-row"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14c0 1.66 4.03 3 9 3s9-1.34 9-3V5"/><path d="M3 12c0 1.66 4.03 3 9 3s9-1.34 9-3"/></svg>' + sp.disk + ' NVMe</div>' +
-        '<div class="plan-card-spec-row"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/></svg>' + sp.cpu + '</div>' +
-      '</div>' +
-      '<div class="plan-card-actions">' +
-        '<button class="btn-view" onclick="event.stopPropagation(); showDetail(\'' + cat + '\',\'' + plan.tier + '\')">View</button>' +
-        '<button class="btn-cart" title="Add to cart"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg></button>' +
-      '</div>';
-    card.onclick = function() { showDetail(cat, plan.tier); };
-    grid.appendChild(card);
-  });
-}
-
-function showPlans(cat) {
-  currentCategory = cat;
-  var data = pricing[cat];
-  document.getElementById('sidebar-title').textContent = data.title;
-  document.getElementById('sidebar-desc').textContent  = data.desc;
-  updateSidebarActive(cat);
-
-  document.querySelectorAll('[id^="pt-"]').forEach(function(el) { el.classList.remove('selected'); });
-  var ptEl = document.getElementById('pt-' + cat);
-  if (ptEl) ptEl.classList.add('selected');
-
-  renderPlanGrid(cat);
-  showPage('page-plans');
-}
-
-function renderDetailPage(cat, tier) {
-  var data = pricing[cat];
-  var plan = null;
-  for (var i = 0; i < data.plans.length; i++) {
-    if (data.plans[i].tier === tier) { plan = data.plans[i]; break; }
-  }
-  if (!plan) return;
-
-  var sp    = specs[tier];
-  var price = convertPrice(basePrices[cat][tier]);
-  var loc   = locationNames[currentLocation];
-
-  document.getElementById('detail-sidebar-title').textContent = data.title;
-  document.getElementById('detail-sidebar-desc').textContent  = data.desc;
-  updateSidebarActive(cat);
-
-  var main = document.getElementById('detail-main');
-  main.innerHTML =
-    '<button class="btn-back" onclick="showPlans(\'' + cat + '\')">← Back</button>' +
-    '<div class="detail-banner ' + tier + '-banner">' + plan.name.toUpperCase() + ' PLAN</div>' +
-    '<div class="detail-plan-name">' + plan.name + ' Plan</div>' +
-    '<div class="detail-price">' + price + ' / month</div>' +
-    '<div class="detail-location-badge">' + loc.flag + ' &nbsp;' + loc.label + '</div>' +
-    '<div class="badge-uptime">✓ 99.9% Uptime &nbsp;|&nbsp; 24/7 Support &nbsp;|&nbsp; Low Latency &nbsp;|&nbsp; DDoS Protection</div>' +
-    '<div class="specs-grid">' +
-      '<div class="spec-card"><div class="spec-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="8" rx="2"/><rect x="2" y="14" width="20" height="8" rx="2"/><line x1="6" y1="6" x2="6.01" y2="6"/><line x1="6" y1="18" x2="6.01" y2="18"/></svg></div><div class="spec-value">' + sp.ram + '</div><div class="spec-label">RAM</div></div>' +
-      '<div class="spec-card"><div class="spec-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14c0 1.66 4.03 3 9 3s9-1.34 9-3V5"/><path d="M3 12c0 1.66 4.03 3 9 3s9-1.34 9-3"/></svg></div><div class="spec-value">' + sp.disk + '</div><div class="spec-label">NVMe Storage</div></div>' +
-      '<div class="spec-card"><div class="spec-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/><line x1="9" y1="1" x2="9" y2="4"/><line x1="15" y1="1" x2="15" y2="4"/><line x1="9" y1="20" x2="9" y2="23"/><line x1="15" y1="20" x2="15" y2="23"/><line x1="20" y1="9" x2="23" y2="9"/><line x1="20" y1="14" x2="23" y2="14"/><line x1="1" y1="9" x2="4" y2="9"/><line x1="1" y1="14" x2="4" y2="14"/></svg></div><div class="spec-value">' + sp.cpu + '</div><div class="spec-label">CPU Cores</div></div>' +
-    '</div>' +
-    '<button class="btn-order-now" onclick="window.open(orderLinks[\'' + cat + '\'][\'' + tier + '\'], \'_blank\')">Order Now</button>';
-}
-
-function showDetail(cat, tier) {
-  currentDetailCat  = cat;
-  currentDetailTier = tier;
-  renderDetailPage(cat, tier);
-  showPage('page-detail');
-}
-
-var isDarkTheme = true;
+  <div id="videoModal" class="modal-overlay" onclick="closeVideoModal(event)">
+    <div class="modal-box video-modal-box">
+      <button class="modal-close" onclick="closeVideoModal()">✕</button>
+      <h3 class="modal-title">Server Advertisement</h3>
+      <video id="modalVideo" controls style="width:100%;max-height:75vh;display:block;border-radius:8px;background:#000;"><source src="projects/video.mp4" type="video/mp4"></video>
+    </div>
+  </div>
+  <div id="lightboxModal" class="modal-overlay" onclick="closeLightbox(event)">
+    <div class="modal-box lightbox-box">
+      <button class="modal-close" onclick="closeLightbox()">✕</button>
+      <div class="lightbox-header"><span id="lightboxTitle" class="modal-title"></span><span id="lightboxCounter" class="lightbox-counter"></span></div>
+      <div class="lightbox-img-wrap"><img id="lightboxImg" src="" alt="Portfolio" style="max-width:100%;max-height:65vh;object-fit:contain;border-radius:8px;"></div>
+      <div class="lightbox-nav"><button class="lb-btn" onclick="lbPrev()">← Prev</button><button class="lb-btn" onclick="lbNext()">Next →</button></div>
+    </div>
+  </div>
+</section>
 
 
-window.addEventListener('load', function() {});
 
-function toggleTheme() {
-  isDarkTheme = !isDarkTheme;
-  var logo       = document.getElementById('site-logo');
-  var footerLogo = document.getElementById('footer-logo');
-  var moon = document.getElementById('theme-icon-moon');
-  var sun  = document.getElementById('theme-icon-sun');
-  if (isDarkTheme) {
-    document.body.classList.remove('light-theme');
-    moon.style.display = '';
-    sun.style.display  = 'none';
-    if (logo)       logo.src       = 'icons/logo-dark.png';
-    if (footerLogo) footerLogo.src = 'icons/logo-dark.png';
-  } else {
-    document.body.classList.add('light-theme');
-    moon.style.display = 'none';
-    sun.style.display  = '';
-    if (logo)       logo.src       = 'icons/logo-light.png';
-    if (footerLogo) footerLogo.src = 'icons/logo-light.png';
-  }
-}
-</script>
+<section id="reviews">
+  <div class="section-wrap">
+    <div class="reveal">
+      <span class="section-tag">Testimonials</span>
+      <h2 class="section-title">What Clients Say</h2>
+      <p class="section-sub">Real words from real clients who trusted us with their vision.</p>
+    </div>
+    <div class="reviews-grid">
+      <div class="review-card reveal"><div class="stars">⭐ 10/10</div><p class="review-text">10/10 web development service, I recommend it fr. Exactly what I needed and they delivered without any hassle.</p><div class="review-author"><div class="author-avatar">Z</div><div><div class="author-name">zArrowTan</div><div class="author-role">Shorts Client</div></div></div></div>
+      <div class="review-card reveal"><div class="stars">⭐ 10/10</div><p class="review-text">Purchased a short from them and they delivered exactly what I was anticipating. Would definitely come back!</p><div class="review-author"><div class="author-avatar">I</div><div><div class="author-name">ITZ_T4NUSH</div><div class="author-role">Web Dev Client</div></div></div></div>
+      <div class="review-card reveal"><div class="stars">⭐ 10/10</div><p class="review-text">10/10 map development — the custom map they built was incredible. Totally worth it, highly recommend!</p><div class="review-author"><div class="author-avatar">S</div><div><div class="author-name">Santa Hori</div><div class="author-role">Map Dev Client</div></div></div></div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="contact-cta reveal">
+    <span class="section-tag" style="background:rgba(56,182,255,0.15);border-color:rgba(56,182,255,0.3);color:var(--blue);">Get In Touch</span>
+    <h2 class="section-title" style="color:var(--white);">Ready to Get<br>Started?</h2>
+    <p>Join our Discord and tell us about your project. We reply fast — usually within a few hours.</p>
+    <a href="https://discord.gg/H2VxDzweeG" target="_blank" rel="noopener" class="btn-discord">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057c.002.022.015.043.032.054a19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.63.874-1.295 1.226-1.994a.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03z"/></svg>
+      Join Our Discord
+    </a>
+    <div class="contact-perks-row">
+      <span><span class="perk-dot"></span> Fast replies</span>
+      <span><span class="perk-dot"></span> Free quotes</span>
+      <span><span class="perk-dot"></span> 24h support</span>
+      <span><span class="perk-dot"></span> Revisions included</span>
+    </div>
+  </div>
+</section>
 
 <footer>
-  <div class="footer-top">
-
-    <div class="footer-brand">
-      <div class="footer-logo">
-        <img id="footer-logo" src="icons/logo-dark.png" alt="Axyn.Cloud" style="height:40px;width:auto;object-fit:contain;" onerror="this.style.display='none';document.getElementById('footer-logo-fallback').style.display='flex';">
-        <div id="footer-logo-fallback" class="nav-logo-icon" style="display:none;width:42px;height:42px;font-size:20px;">A</div>
-      </div>
-      <p class="footer-tagline">High-performance hosting powered by reliable hardware, secure infrastructure, and 24/7 support.</p>
-      <a href="https://discord.gg/bqsYCzMqef" target="_blank" class="footer-discord-btn">
-        <svg width="16" height="16" viewBox="0 0 127.14 96.36" fill="currentColor"><path d="M107.7 8.07A105.15 105.15 0 0 0 81.47 0a72.06 72.06 0 0 0-3.36 6.83 97.68 97.68 0 0 0-29.11 0A72.37 72.37 0 0 0 45.64 0a105.89 105.89 0 0 0-26.25 8.09C2.79 32.65-1.71 56.6.54 80.21a105.73 105.73 0 0 0 32.17 16.15 77.7 77.7 0 0 0 6.89-11.11 68.42 68.42 0 0 1-10.85-5.18c.91-.66 1.8-1.34 2.66-2a75.57 75.57 0 0 0 64.32 0c.87.71 1.76 1.39 2.66 2a68.68 68.68 0 0 1-10.87 5.19 77 77 0 0 0 6.89 11.1 105.25 105.25 0 0 0 32.19-16.14c2.64-27.38-4.51-51.11-18.9-72.14zM42.45 65.69C36.18 65.69 31 60 31 53s5-12.74 11.43-12.74S54 46 53.89 53s-5.05 12.69-11.44 12.69zm42.24 0C78.41 65.69 73.25 60 73.25 53s5-12.74 11.44-12.74S96.23 46 96.12 53s-5.04 12.69-11.43 12.69z"/></svg>
-        Join our Discord
-      </a>
-    </div>
-
-    <div class="footer-col">
-      <h4>Quick Links</h4>
-      <ul>
-        <li><a onclick="goHome()">Home</a></li>
-        <li><a href="https://discord.gg/bqsYCzMqef" target="_blank">Discord</a></li>
-        <li><a onclick="showPlans('epyc')">AMD EPYC Hosting</a></li>
-        <li><a onclick="showPlans('ryzen')">AMD Ryzen 9 Hosting</a></li>
-        <li><a onclick="showPlans('xeon')">Intel Xeon Hosting</a></li>
-      </ul>
-    </div>
-
-    <div class="footer-col">
-      <h4>Legal</h4>
-      <ul>
-        <li><a href="#">Terms of Service</a></li>
-        <li><a href="#">Privacy Policy</a></li>
-        <li><a href="#">Refund Policy</a></li>
-      </ul>
-    </div>
-
-    <div class="footer-col">
-      <h4>Contact Us</h4>
-      <div class="footer-contact-list">
-        <div class="footer-contact-item">
-          <div class="footer-contact-icon">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
-          </div>
-          <div>
-            <div class="footer-contact-label">EMAIL</div>
-            <a href="mailto:axyncloud@gmail.com" class="footer-contact-value" style="color:var(--text-main);text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='var(--accent-blue-light)'" onmouseout="this.style.color='var(--text-main)'">axyncloud@gmail.com</a>
-          </div>
-        </div>
-        <div class="footer-contact-item">
-          <div class="footer-contact-icon">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.64 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.55 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9a16 16 0 0 0 6.29 6.29l.77-.77a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-          </div>
-          <div>
-            <div class="footer-contact-label">PHONE</div>
-            <div class="footer-contact-value coming-soon">Coming Soon</div>
-          </div>
-        </div>
-        <div class="footer-contact-item">
-          <div class="footer-contact-icon">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
-          </div>
-          <div>
-            <div class="footer-contact-label">BILLING PANEL</div>
-            <a href="https://billing.axyn.cloud/" target="_blank" class="footer-contact-value" style="color:var(--accent-blue-light);text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='var(--accent-blue-light)'">billing.axyn.cloud</a>
-          </div>
-        </div>
-      </div>
-    </div>
-
+  <div class="footer-left">
+    <a href="#">
+      <img src="logo.png" alt="StackEdge" class="footer-logo-img"
+           onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+      <span class="footer-logo-text">Stack<span>Edge</span></span>
+    </a>
+    <p class="footer-madeby">Made by <span>Try2hardx</span></p>
   </div>
-
-  <div class="footer-bottom">
-    <span>© 2026 Axyn.Cloud. All rights reserved.</span>
-    <span>Made by <a href="#" style="color:var(--accent-light);text-decoration:none;font-weight:600;">try2hardx</a></span>
-  </div>
+  <ul class="footer-links">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#portfolio">Work</a></li>
+    <li><a href="#reviews">Reviews</a></li>
+    <li><a href="https://discord.gg/H2VxDzweeG" target="_blank" rel="noopener">Contact</a></li>
+  </ul>
+  <p class="footer-copy">© 2026 StackEdge Studio. All rights reserved.</p>
 </footer>
 
+<script>
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
+  function openVideoModal() {
+    const modal = document.getElementById('videoModal');
+    const vid = document.getElementById('modalVideo');
+    modal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+    vid.load();
+    setTimeout(() => vid.play().catch(() => {}), 150);
+  }
+  function closeVideoModal(e) {
+    if (e && e.target !== document.getElementById('videoModal') && !e.target.classList.contains('modal-close')) return;
+    document.getElementById('videoModal').classList.remove('active');
+    const vid = document.getElementById('modalVideo');
+    vid.pause(); vid.currentTime = 0;
+    document.body.style.overflow = '';
+  }
+
+  let lbIndex = 1, lbCat = '';
+  const lbData = {
+    build: { title: 'Custom Map', path: 'projects/builds/' },
+    thumb: { title: 'Custom Thumbnail Pack', path: 'projects/thumbnails/' }
+  };
+  function openLightbox(cat) {
+    lbCat = cat; lbIndex = 1;
+    document.getElementById('lightboxTitle').innerText = lbData[cat].title;
+    loadLbImg();
+    document.getElementById('lightboxModal').classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeLightbox(e) {
+    if (e && e.target !== document.getElementById('lightboxModal') && !e.target.classList.contains('modal-close')) return;
+    document.getElementById('lightboxModal').classList.remove('active');
+    document.body.style.overflow = '';
+  }
+  function loadLbImg() {
+    const exts = ['png','jpg','jpeg','webp'];
+    const img = document.getElementById('lightboxImg');
+    function tryExt(i) {
+      if (i >= exts.length) { img.src=''; document.getElementById('lightboxCounter').innerText='No image'; return; }
+      const t = new Image();
+      t.onload = () => { img.src = t.src; document.getElementById('lightboxCounter').innerText = lbIndex; };
+      t.onerror = () => tryExt(i+1);
+      t.src = lbData[lbCat].path + lbIndex + '.' + exts[i];
+    }
+    tryExt(0);
+  }
+  function lbNext() { lbIndex++; loadLbImg(); }
+  function lbPrev() { if (lbIndex > 1) { lbIndex--; loadLbImg(); } }
+  document.addEventListener('keydown', e => { if (e.key==='Escape') { closeVideoModal(); closeLightbox(); } });
+</script>
 </body>
 </html>
